@@ -238,6 +238,16 @@
       },
       "url": "https://packages.unity.com"
     },
+    "dev.vanhoof.tiktokliveunity": {
+      "version": "https://github.com/frankvHoof93/TikTokLiveSharp.git#TikTokLiveUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.textmeshpro": "3.0.0"
+      },
+      "hash": "b6af073e2d3fc7aa440220b7f54d72d7dc84046d"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
