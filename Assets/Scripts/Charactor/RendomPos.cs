@@ -1,13 +1,13 @@
 using System.Collections;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class RendomPos : MonoBehaviour
 {
     public Vector2 min, max;
-    public float coolingSec = 10;
-    [Searchable]
+    public float coolingSec = 2;
+    [SerializeField]
     private Vector3 pos;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
