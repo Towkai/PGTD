@@ -1,47 +1,68 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FreeLook : MonoBehaviour
 {
-    // InputAction triggerAction;
     [SerializeField]
     PlayerInput playerInput;
     InputAction moveAction; //wsadqe
+    [SerializeField]
+    bool allowMove = false;
     public float moveSpeed = 0.1f;
-    public float zoomSpeed = 0.2f;
-    public Vector2 rotateSpeed = Vector2.one * 0.2f;
+    public float rotateSpeed = 0.2f;
     [SerializeField]
     Space rotateSpace;
-    // InputAction zoomAction;
 
-    private void Start()
+    void Start()
     {
         playerInput ??= this.GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Free_Move");
     }
-
     void Update()
     {
-        if (Mouse.current.rightButton.isPressed)
-        {   
+        if (allowMove)
             Move(moveSpeed);
-            Rotate();
-        }
-        if (Mouse.current.scroll.value != Vector2.zero)
-        {
-            Move(zoomSpeed);
-        }
     }
     void Move(float speed)
     {
         Vector3 moveValue = moveAction.ReadValue<Vector3>();
         this.transform.Translate(moveValue.x * speed, moveValue.y * speed, moveValue.z * speed);        
     }
-    void Rotate()
+    public void Move(InputAction.CallbackContext ctx)
     {
-        this.transform.Rotate(-Mouse.current.delta.y.value * rotateSpeed.x, Mouse.current.delta.x.value * rotateSpeed.y, 0, rotateSpace);
-        SetRotationZtoZero(this.transform);
+        switch (ctx.phase)
+        {
+            case InputActionPhase.Performed:
+                allowMove = true;
+                break;
+            case InputActionPhase.Canceled:
+                allowMove = false;
+                break;
+        }
+    }
+    public void Rotate(InputAction.CallbackContext ctx)
+    {
+        if (allowMove && ctx.performed)
+        {
+            Vector2 delta = ctx.ReadValue<Vector2>();
+            this.transform.Rotate(-delta.y * rotateSpeed, delta.x * rotateSpeed, 0, rotateSpace);
+            SetRotationZtoZero(this.transform);
+        }
+    }
+    public void Zoom(InputAction.CallbackContext ctx)
+    {
+        print(ctx);
+        switch (ctx.phase)
+        {
+            case InputActionPhase.Started:
+                moveSpeed *= 2;
+                break;
+            case InputActionPhase.Performed:
+                moveSpeed /= 2;
+                break;
+        }
     }
     void SetRotationZtoZero(Transform transform)
     {
