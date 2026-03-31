@@ -7,8 +7,7 @@ public class FreeLook : MonoBehaviour
     // InputAction triggerAction;
     [SerializeField]
     PlayerInput playerInput;
-    InputAction moveAction; //wsad
-    InputAction transAction; //qe
+    InputAction moveAction; //wsadqe
     public float moveSpeed = 0.1f;
     public float zoomSpeed = 0.2f;
     public Vector2 rotateSpeed = Vector2.one * 0.2f;
@@ -20,7 +19,6 @@ public class FreeLook : MonoBehaviour
     {
         playerInput ??= this.GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Free_Move");
-        transAction = playerInput.actions.FindAction("Free_Translate");
     }
 
     void Update()
@@ -37,9 +35,8 @@ public class FreeLook : MonoBehaviour
     }
     void Move(float speed)
     {
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        float translation = transAction.ReadValue<float>();
-        this.transform.Translate(moveValue.x * speed, translation * speed, moveValue.y * speed);        
+        Vector3 moveValue = moveAction.ReadValue<Vector3>();
+        this.transform.Translate(moveValue.x * speed, moveValue.y * speed, moveValue.z * speed);        
     }
     void Rotate()
     {
