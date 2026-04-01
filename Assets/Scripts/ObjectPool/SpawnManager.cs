@@ -1,45 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+namespace ObjectPool
 {
-    public static SpawnManager Instance;
-
-    [System.Serializable]
-    public class PoolConfig
+    public class SpawnManager : MonoBehaviour
     {
-        public string key;
-        public GameObject prefab;
-        public int initialSize = 10;
-    }
+        public static SpawnManager Instance;
 
-    public List<PoolConfig> poolConfigs;
+        public List<PoolConfig> poolConfigs;
 
-    private Dictionary<string, ObjectPool> pools = new();
+        private Dictionary<string, Pool> pools = new Dictionary<string, Pool>();
 
-    void Awake()
-    {
-        Instance = this;
-
-        foreach (var config in poolConfigs)
+        void Awake()
         {
-            pools[config.key] = new ObjectPool(
-                config.prefab,
-                config.initialSize,
-                this.transform
-            );
-        }
-    }
+            Instance = this;
 
-    public GameObject Spawn(string key, Vector3 position, Quaternion rotation)
-    {
-        if (!pools.ContainsKey(key))
-        {
-            Debug.LogError($"Pool not found: {key}");
-            return null;
+            foreach (var config in poolConfigs)
+            {
+                pools[config.key] = new Pool(
+                    config.prefab,
+                    config.initialSize,
+                    this.transform
+                );
+            }
         }
 
-        var pooled = pools[key].Get(position, rotation);
-        return pooled.gameObject;
+        public GameObject Spawn(string key, Vector3 position, Quaternion rotation)
+        {
+            if (!pools.ContainsKey(key))
+            {
+                Debug.LogError($"Pool not found: {key}");
+                return null;
+            }
+
+            var pooled = pools[key].Get(position, rotation);
+            return pooled.gameObject;
+        }
     }
 }

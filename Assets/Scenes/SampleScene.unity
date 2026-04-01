@@ -1477,9 +1477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolConfigs:
-  - key: Minion
-    prefab: {fileID: 581044300692859250, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-    initialSize: 10
+  - {fileID: 11400000, guid: ade15e4f8d7017342a36241890f8dcdc, type: 2}
+  - {fileID: 11400000, guid: 572cc76426d260643b128aa122d57552, type: 2}
 --- !u!1 &1376411317
 GameObject:
   m_ObjectHideFlags: 0

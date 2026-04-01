@@ -1,11 +1,27 @@
 using UnityEngine;
+using EventDispatcher;
+using Interfaces;
 
-public class PooledObject : MonoBehaviour
+namespace ObjectPool
 {
-    public ObjectPool Pool { get; set; }
-
-    public void ReturnToPool()
+    public struct RecycleEvent : IEvent {}
+    public class PooledObject : MonoBehaviour
     {
-        Pool?.Return(this);
+        public Pool Pool { get; set; }
+        void OnEnable()
+        {
+            Dispatcher.Instance.Subscribe<RecycleEvent>(ReturnToPool);
+        }
+
+        void OnDisable()
+        {
+            Dispatcher.Instance.Unsubscribe<RecycleEvent>(ReturnToPool);
+        }
+
+        private void ReturnToPool(RecycleEvent e)
+        {
+            Pool?.Return(this);
+        }
+
     }
 }
