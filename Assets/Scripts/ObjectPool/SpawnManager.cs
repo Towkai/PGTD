@@ -27,7 +27,7 @@ namespace ObjectPool
             }
         }
 
-        public GameObject Spawn(string key)
+        public GameObject Spawn(string key, Vector3? pos = null, Quaternion? rot = null)
         {
             if (!pools.ContainsKey(key))
             {
@@ -35,7 +35,7 @@ namespace ObjectPool
                 return null;
             }
 
-            var pooled = pools[key].Get(null, null);
+            var pooled = pools[key].Get(pos, rot);
             return pooled.gameObject;
         }
     }

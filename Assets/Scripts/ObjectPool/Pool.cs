@@ -31,7 +31,9 @@ namespace ObjectPool
 
         private PooledObject CreateNew(Vector3? pos, Quaternion? rot)
         {
-            GameObject obj = GameObject.Instantiate(prefab, Position, rotation, parent);
+            Vector3 vector3 = pos ?? Position;
+            Quaternion quaternion = rot ?? rotation;
+            GameObject obj = GameObject.Instantiate(prefab, vector3, quaternion, parent);
             obj.SetActive(false);
 
             var pooled = obj.GetComponent<PooledObject>();
