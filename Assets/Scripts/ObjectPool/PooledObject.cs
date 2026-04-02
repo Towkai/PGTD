@@ -4,21 +4,31 @@ using Interfaces;
 
 namespace ObjectPool
 {
-    public struct RecycleEvent : IEvent {}
     public class PooledObject : MonoBehaviour
     {
         public Pool Pool { get; set; }
         void OnEnable()
         {
-            Dispatcher.Instance.Subscribe<RecycleEvent>(ReturnToPool);
+            Dispatcher.Instance.Subscribe<EmptyEvent>(ReturnToPool);
+            Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
         }
 
         void OnDisable()
         {
-            Dispatcher.Instance.Unsubscribe<RecycleEvent>(ReturnToPool);
+            Dispatcher.Instance.Unsubscribe<EmptyEvent>(ReturnToPool);
+            Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
         }
 
-        private void ReturnToPool(RecycleEvent e)
+        private void ReturnToPool(EmptyEvent e)
+        {
+            Pool?.Return(this);
+        }
+        private void ReturnToPool(RecycleEventArg e)
+        {
+            if (e.Transform == this.transform)
+                Pool?.Return(this);
+        }
+        public void ReturnToPool()
         {
             Pool?.Return(this);
         }

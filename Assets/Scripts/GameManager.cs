@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using ObjectPool;
 using EventDispatcher;
+using Interfaces;
 
 
 public class GameManager : MonoBehaviour
 {
-    // InputAction triggerAction;
     [SerializeField]
     PlayerInput testInput;
     List<InputAction> spawnAction = new List<InputAction>();
@@ -27,24 +27,20 @@ public class GameManager : MonoBehaviour
             {
                 //TODO: 生成紅方小兵
                 SpawnManager.Instance.Spawn(
-                    "S.Red.Minion",
-                    Vector3.zero,
-                    Quaternion.Euler(0, 0, 0)
+                    "S.Red.Minion"
                 );
             }
             else if (ctx.control.displayName == "X")
             {
                 //TODO: 生成藍方小兵    
                 SpawnManager.Instance.Spawn(
-                    "S.Blue.Minion",
-                    Vector3.zero,
-                    Quaternion.Euler(0, 0, 0)
+                    "S.Blue.Minion"
                 );
             }
             else if (ctx.control.displayName == "C")
             {
                 //TODO: 回收所有小兵
-                Dispatcher.Instance.Dispatch(new RecycleEvent());
+                Dispatcher.Instance.Dispatch(new EmptyEvent());
             }
         }
     }

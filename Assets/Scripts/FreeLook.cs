@@ -53,7 +53,6 @@ public class FreeLook : MonoBehaviour
     }
     public void Zoom(InputAction.CallbackContext ctx)
     {
-        print(ctx);
         switch (ctx.phase)
         {
             case InputActionPhase.Started:

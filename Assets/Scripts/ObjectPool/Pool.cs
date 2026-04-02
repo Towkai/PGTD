@@ -10,22 +10,28 @@ namespace ObjectPool
         [Sirenix.OdinInspector.ShowInInspector]
     #endif
         private Queue<PooledObject> pool = new Queue<PooledObject>();
+        
+        private Vector3[] posRange;
+        public Vector3 Position => new Vector3(Random.Range(posRange[0].x, posRange[1].x), Random.Range(posRange[0].y, posRange[1].y), Random.Range(posRange[0].z, posRange[1].z));
+        private Quaternion rotation;
         private Transform parent;
 
-        public Pool(GameObject prefab, int initialSize, Transform parent = null)
+        public Pool(GameObject prefab, int initialSize, Vector3[] posRange, Vector3 eulerRotation, Transform parent = null)
         {
             this.prefab = prefab;
             this.parent = parent;
+            this.posRange = posRange;
+            this.rotation = Quaternion.Euler(eulerRotation);
 
             for (int i = 0; i < initialSize; i++)
             {
-                CreateNew();
+                CreateNew(Position, rotation);
             }
         }
 
-        private PooledObject CreateNew()
+        private PooledObject CreateNew(Vector3? pos, Quaternion? rot)
         {
-            GameObject obj = GameObject.Instantiate(prefab, parent);
+            GameObject obj = GameObject.Instantiate(prefab, Position, rotation, parent);
             obj.SetActive(false);
 
             var pooled = obj.GetComponent<PooledObject>();
@@ -38,15 +44,15 @@ namespace ObjectPool
             return pooled;
         }
 
-        public PooledObject Get(Vector3 position, Quaternion rotation)
+        public PooledObject Get(Vector3? pos, Quaternion? rot)
         {
             if (pool.Count == 0)
             {
-                CreateNew();
+                CreateNew(pos, rot);
             }
 
             var obj = pool.Dequeue();
-            obj.transform.SetPositionAndRotation(position, rotation);
+            obj.transform.SetPositionAndRotation(pos ?? Position, rot ?? this.rotation);
             obj.gameObject.SetActive(true);
 
             return obj;

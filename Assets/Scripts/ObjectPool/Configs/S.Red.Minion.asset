@@ -15,3 +15,7 @@ MonoBehaviour:
   key: S.Red.Minion
   prefab: {fileID: 4790063693676252485, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
   initialSize: 10
+  posRange:
+  - {x: -14, y: 0, z: -4}
+  - {x: -10, y: 0, z: 4}
+  eulerRot: {x: 0, y: 90, z: 0}

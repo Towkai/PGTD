@@ -20,12 +20,14 @@ namespace ObjectPool
                 pools[config.key] = new Pool(
                     config.prefab,
                     config.initialSize,
+                    config.posRange,
+                    config.eulerRot,
                     this.transform
                 );
             }
         }
 
-        public GameObject Spawn(string key, Vector3 position, Quaternion rotation)
+        public GameObject Spawn(string key)
         {
             if (!pools.ContainsKey(key))
             {
@@ -33,7 +35,7 @@ namespace ObjectPool
                 return null;
             }
 
-            var pooled = pools[key].Get(position, rotation);
+            var pooled = pools[key].Get(null, null);
             return pooled.gameObject;
         }
     }

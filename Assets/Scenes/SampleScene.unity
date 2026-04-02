@@ -1511,7 +1511,7 @@ MonoBehaviour:
   reconnectDelay: 60
   User: pagui_aki
   OAuth: oauth:rn9mokua611pk0a82ex217kwcpe7lh
-  Channel: ksonsouchou
+  Channel: usamu_1127
 --- !u!4 &1376411319
 Transform:
   m_ObjectHideFlags: 0
@@ -1718,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 1110584663}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8673
+      value: 8676
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2069,7 +2069,7 @@ PrefabInstance:
       objectReference: {fileID: 1956066657}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8682
+      value: 8685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

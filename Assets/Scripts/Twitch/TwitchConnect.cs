@@ -84,7 +84,7 @@ public class TwitchConnect : MonoBehaviour
             reconnectTimer += Time.deltaTime;
             if (reconnectTimer >= reconnectDelay)
             {
-                Debug.Log("🔄 Reconnecting...");
+                Debug.Log("Reconnecting...");
                 ConnectToTwitch();
                 reconnectTimer = 0;
             }
@@ -98,7 +98,7 @@ public class TwitchConnect : MonoBehaviour
 
             Debug.Log($"<color=yellow>{message}</color>");
 
-            // 回應 PING（不然會斷線）
+            // 回應 PING 防斷線
             if (message.StartsWith("PING"))
             {
                 Writer.WriteLine("PONG :tmi.twitch.tv");
@@ -118,7 +118,7 @@ public class TwitchConnect : MonoBehaviour
             string user = GetUser(message);
             string msg = GetMessage(message);
 
-            Debug.Log($"💬 {user}: {msg}");
+            Debug.Log($"{user}: {msg}");
         }
 
         // 訂閱 / 贈送事件
@@ -130,21 +130,21 @@ public class TwitchConnect : MonoBehaviour
             switch (msgId)
             {
                 case "sub":
-                    Debug.Log($"🎉 {user} 訂閱了！");
+                    Debug.Log($"{user} 訂閱");
                     break;
 
                 case "resub":
-                    Debug.Log($"🔁 {user} 續訂！");
+                    Debug.Log($"{user} 續訂");
                     break;
 
                 case "subgift":
                     string recipient = GetTagValue(message, "msg-param-recipient-display-name");
-                    Debug.Log($"🎁 {user} 贈送訂閱給 {recipient}");
+                    Debug.Log($"{user} 贈送訂閱給 {recipient}");
                     break;
 
                 case "submysterygift":
                     string count = GetTagValue(message, "msg-param-mass-gift-count");
-                    Debug.Log($"💥 {user} 一次送了 {count} 個訂閱！");
+                    Debug.Log($"{user} 送了 {count} 個訂閱");
                     break;
             }
         }
@@ -168,7 +168,7 @@ public class TwitchConnect : MonoBehaviour
 
     string GetMessage(string message)
     {
-        // 使用正規表達式來提取訊息內容
+        // 提取訊息內容
         string pattern = @"PRIVMSG\s+#\w+\s+:(.*)";
         System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(message, pattern);
 
