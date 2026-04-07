@@ -130,8 +130,8 @@ GameObject:
   - component: {fileID: 59967701}
   - component: {fileID: 59967705}
   - component: {fileID: 59967704}
-  - component: {fileID: 59967703}
   - component: {fileID: 59967702}
+  - component: {fileID: 59967706}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -181,33 +181,11 @@ MonoBehaviour:
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
+  m_OverrideVoxelSize: 1
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b16241516f6755745af8429f52c311f1, type: 2}
   m_BuildHeightMesh: 0
---- !u!64 &59967703
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59967700}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &59967704
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -261,6 +239,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59967700}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &59967706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59967700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.001, z: 10}
+  m_Center: {x: 0, y: -0.0005, z: 0}
 --- !u!43 &202360475
 Mesh:
   m_ObjectHideFlags: 0
@@ -795,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 865b3326eb3b34142ba35247a2665c7c, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 0c36edc3e5e075a42a56bf6c69941bb2, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -808,58 +807,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 63486858-97e1-4dff-848d-4cba460459e0
-    m_ActionName: 'FreeLook/Free_Move[/Keyboard/w,/Keyboard/upArrow,/Mouse/scroll/up,/Keyboard/s,/Keyboard/downArrow,/Mouse/scroll/down,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/Keyboard/q,/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1390653927}
-        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a68a6eba-b28e-4018-8689-ddcf183c8fa9
-    m_ActionName: 'FreeLook/Free_Trigger[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1390653927}
-        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
-        m_MethodName: Rotate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: cb9f206d-bd2a-444b-a0b1-21ec8d09d115
-    m_ActionName: 'FreeLook/Free_Rotate[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1390653927}
-        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
-        m_MethodName: Zoom
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f59c9a7b-e1bb-402a-be2f-427bf7e35c32
-    m_ActionName: 'FreeLook/Free_Zoom[/Mouse/scroll/up,/Mouse/scroll/down]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 656204500}
@@ -874,7 +821,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 73a3b5ae-6a07-4e04-892f-01a394ffd529
+    m_ActionId: 5813d041-eff0-42df-9ea1-f731c1c4e77f
     m_ActionName: 'Spawn/Spawn_S.Red_Minion[/Keyboard/z]'
   - m_PersistentCalls:
       m_Calls:
@@ -890,9 +837,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c5575a39-c92d-49ab-b7bc-f70419e8ee09
+    m_ActionId: ea4fdaf5-9cc7-4c59-af49-3f573b8ec572
     m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/x]'
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71c56ddd-b4ae-4d16-a0a3-adb992c82094
+    m_ActionName: 'Spawn/Spawn_S.Bullet[/Keyboard/v]'
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 656204500}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
@@ -906,59 +857,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e415b692-6f56-407e-8ac9-c8b784c56284
+    m_ActionId: 85afda56-8712-4892-8c7e-28d62e4ddbc2
     m_ActionName: 'Spawn/Destroy_S.All_Minion[/Keyboard/c]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 591d3be2-df9e-42f5-8b5b-edae850ca690
-    m_ActionName: 'FreeLook/Spawn_S.Red_Minion[/Keyboard/z]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: fbdf3e27-9a82-4310-b859-acca6a0647b8
-    m_ActionName: 'FreeLook/Spawn_S.Blue_Minion[/Keyboard/x]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9abdd925-5e31-471f-addd-daf7962b64f3
-    m_ActionName: 'FreeLook/Destroy_S.All_Minion[/Keyboard/c]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: FreeLook
+  m_DefaultActionMap: Spawn
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &656204500
@@ -1479,6 +1382,7 @@ MonoBehaviour:
   poolConfigs:
   - {fileID: 11400000, guid: ade15e4f8d7017342a36241890f8dcdc, type: 2}
   - {fileID: 11400000, guid: 572cc76426d260643b128aa122d57552, type: 2}
+  - {fileID: 11400000, guid: 72b005e446eadc7488ef5ca5950e219a, type: 2}
 --- !u!1 &1376411317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,9 +1556,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: S.Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 2872667560599334697, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977451664735938661, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: be3c85243609fd04abe20ff501eb734f, type: 2}
     - target: {fileID: 3882217246647639815, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_Center.x
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973286997928564673, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4071561037356662245, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1662,7 +1578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071561037356662245, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4071561037356662245, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1696,6 +1612,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052981619494775578, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6223841527743020648, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1718,7 +1638,7 @@ PrefabInstance:
       objectReference: {fileID: 1110584663}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8676
+      value: 8700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2024,9 +1944,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: S.Red
       objectReference: {fileID: 0}
+    - target: {fileID: 2872667560599334697, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3882217246647639815, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_Center.x
       value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973286997928564673, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4071561037356662245, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2048,6 +1976,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052981619494775578, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6663150706777690560, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2066,7 +1998,7 @@ PrefabInstance:
       objectReference: {fileID: 1956066657}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8685
+      value: 8709
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2085,17 +2017,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 427222491371992105, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.396
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.312
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.549
+      value: -6.92
       objectReference: {fileID: 0}
     - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
       propertyPath: m_LocalRotation.w

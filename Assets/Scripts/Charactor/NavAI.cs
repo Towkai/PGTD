@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Charactor
+namespace Character
 {
     public class NavAI : MonoBehaviour
     {

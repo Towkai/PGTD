@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Charactor
+namespace Character
 {
     public class MinionDetection
     {

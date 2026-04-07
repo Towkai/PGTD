@@ -29,11 +29,9 @@ namespace ObjectPool
             }
         }
 
-        private PooledObject CreateNew(Vector3? pos, Quaternion? rot)
+        private PooledObject CreateNew(Vector3 pos, Quaternion rot)
         {
-            Vector3 vector3 = pos ?? Position;
-            Quaternion quaternion = rot ?? rotation;
-            GameObject obj = GameObject.Instantiate(prefab, vector3, quaternion, parent);
+            GameObject obj = GameObject.Instantiate(prefab, pos, rot, parent);
             obj.SetActive(false);
 
             var pooled = obj.GetComponent<PooledObject>();
@@ -48,13 +46,16 @@ namespace ObjectPool
 
         public PooledObject Get(Vector3? pos, Quaternion? rot)
         {
+            Vector3 vector3 = pos ?? Position;
+            Quaternion quaternion = rot == null ? rotation : rotation * (Quaternion)rot;
+            
             if (pool.Count == 0)
             {
-                CreateNew(pos, rot);
+                CreateNew(vector3, quaternion);
             }
 
             var obj = pool.Dequeue();
-            obj.transform.SetPositionAndRotation(pos ?? Position, rot ?? this.rotation);
+            obj.transform.SetPositionAndRotation(vector3, quaternion);
             obj.gameObject.SetActive(true);
 
             return obj;

@@ -73,6 +73,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8631558761940507815, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: attackRange
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631558761940507815, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: detectRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631558761940507815, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}

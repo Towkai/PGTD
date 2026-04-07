@@ -1,0 +1,95 @@
+{
+    "version": 1,
+    "name": "TestActions",
+    "maps": [
+        {
+            "name": "Spawn",
+            "id": "a8ec49fb-95fb-4a53-815d-88c716b60bf3",
+            "actions": [
+                {
+                    "name": "Spawn_S.Red_Minion",
+                    "type": "Button",
+                    "id": "5813d041-eff0-42df-9ea1-f731c1c4e77f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn_S.Blue_Minion",
+                    "type": "Button",
+                    "id": "ea4fdaf5-9cc7-4c59-af49-3f573b8ec572",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Destroy_S.All_Minion",
+                    "type": "Button",
+                    "id": "85afda56-8712-4892-8c7e-28d62e4ddbc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn_S.Bullet",
+                    "type": "Button",
+                    "id": "71c56ddd-b4ae-4d16-a0a3-adb992c82094",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4e9cc09b-a776-49b6-a200-64db1180e57d",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn_S.Red_Minion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9152e919-3c8a-41ae-97e0-23c887a0975b",
+                    "path": "<Keyboard>/x",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn_S.Blue_Minion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19971a74-f0a3-4051-8c47-bb541b54fe36",
+                    "path": "<Keyboard>/v",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn_S.Bullet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01e6f4cc-25e6-4d7f-9073-01c120f99325",
+                    "path": "<Keyboard>/c",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Destroy_S.All_Minion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
