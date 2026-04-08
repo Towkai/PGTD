@@ -13,24 +13,16 @@ namespace Character
         [SerializeField] private LayerMask m_enemyLayer;
         [SerializeField] private MeshRenderer m_meshRenderer;
         [SerializeField] private TrailRenderer m_trailRenderer;
+        [SerializeField] private float m_trailTime = 0.5f;
         [SerializeField] private float m_harm; //子彈威力
         [SerializeField] private float m_speed;
         private RecycleEventArg recycleEventArg = null;
         
-        void Start()
+        public void init() //由PooledObject呼叫初始化
         {
-            m_meshRenderer ??= this.GetComponent<MeshRenderer>();
-            m_trailRenderer ??= this.GetComponent<TrailRenderer>();
-            recycleEventArg = new RecycleEventArg(this.transform, Print);
+            recycleEventArg ??= new RecycleEventArg(this.transform);
         }
-        
-#if UNITY_EDITOR
-        void Print()
-        {
-            if (m_debug)
-                Debug.Log("Debug");
-        }
-#endif
+
         void Update()
         {
             this.transform.position += this.transform.forward * m_speed;

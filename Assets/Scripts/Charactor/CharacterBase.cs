@@ -13,13 +13,9 @@ namespace Character
 #if ODIN_INSPECTOR && UNITY_EDITOR
         [Sirenix.OdinInspector.Button]
 #endif
-        void init()
+        public virtual void Init()
         {
             m_nowBlood = m_fullBlood;
-        }
-        protected virtual void Start()
-        {
-            init();
         }
         /// <summary>
         /// 受傷

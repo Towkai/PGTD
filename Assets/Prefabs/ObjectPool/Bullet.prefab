@@ -125,7 +125,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recycleTime: 5
-  recycleTimer: 0
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1915710642047490336}
+        m_TargetAssemblyTypeName: Character.Bullet, Assembly-CSharp
+        m_MethodName: init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRecycle:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1915710642047490336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +161,7 @@ MonoBehaviour:
     m_Bits: 192
   m_meshRenderer: {fileID: 8882857989862569169}
   m_trailRenderer: {fileID: 3002835595946579912}
+  m_trailTime: 0.5
   m_harm: 3
   m_speed: 0.01
 --- !u!96 &3002835595946579912

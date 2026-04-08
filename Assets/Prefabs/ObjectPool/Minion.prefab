@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb98248f3230ed49b00e5b7abf2e71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fullBlood: 10
   m_navAgent: {fileID: 6452763490608458702}
   m_speed: 1
-  m_nowBlood: 0
   detectRange: 3.5
   attackRange: 1.75
   attackDelay: 2
@@ -94,7 +94,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recycleTime: -1
-  recycleTimer: 0
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8631558761940507815}
+        m_TargetAssemblyTypeName: Character.MinionController, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRecycle:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &552254220331225876
 BoxCollider:
   m_ObjectHideFlags: 0

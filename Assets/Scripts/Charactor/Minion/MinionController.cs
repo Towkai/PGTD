@@ -29,7 +29,7 @@ namespace Character
         [Sirenix.OdinInspector.ShowInInspector]
 #endif
         public Transform Target { 
-            get => m_target == null || m_target.Equals(null) || !m_target.gameObject.activeInHierarchy ? main_target : m_target;
+            get => m_target == null || m_target.Equals(null) || !m_target.gameObject.activeInHierarchy ? (main_target ??= GameObject.Find(LayerMask.LayerToName((int)Mathf.Log(enemyLayer.value, 2))).transform) : m_target;
             set => m_target = value;
         }
         public void SetNavDestination()
@@ -77,12 +77,13 @@ namespace Character
             AttackState = new MinionAttackState(this, StateMachine, attackRange);
         }
 
-        void Start()
+
+        public override void Init()
         {
-            recycleEventArg = new RecycleEventArg(this.transform);
-            StateMachine.Initialize(NormalState);
-            main_target = GameObject.Find(LayerMask.LayerToName((int)Mathf.Log(enemyLayer.value, 2))).transform;
+            base.Init();
             m_nowBlood = m_fullBlood;
+            recycleEventArg ??= new RecycleEventArg(this.transform);
+            StateMachine.Initialize(NormalState);
         }
 
         void Update()
