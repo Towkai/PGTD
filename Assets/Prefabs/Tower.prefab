@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fullBlood: 100
-  m_nowBlood: 0
+  m_bloodBar: {fileID: 3754578358068275540}
 --- !u!33 &7188810359246898737
 MeshFilter:
   m_ObjectHideFlags: 0

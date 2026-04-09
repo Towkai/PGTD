@@ -6,6 +6,7 @@ namespace Character
     {
         [SerializeField] protected float m_fullBlood = 10;
         protected float m_nowBlood;
+        public float FullBlood => m_fullBlood;
 #if ODIN_INSPECTOR && UNITY_EDITOR
         [Sirenix.OdinInspector.ShowInInspector]
 #endif
