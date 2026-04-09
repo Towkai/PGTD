@@ -1,4 +1,4 @@
-public class ConstString
+public static class ConstString
 {
     public const string S_Red_Minion = "S.Red.Minion";
     public const string S_Blue_Minion = "S.Blue.Minion";

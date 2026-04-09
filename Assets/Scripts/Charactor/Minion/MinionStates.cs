@@ -114,7 +114,7 @@ namespace Character
         void Attack()
         {
             minion.transform.forward = Vector3.ProjectOnPlane(minion.Target.position - minion.transform.position, Vector3.up);
-            GameManager.Instance.Spawn("Bullet", minion.transform.position + minion.transform.forward * 0.5f, minion.transform.rotation);
+            GameManager.Instance.Spawn(ConstString.Bullet, minion.transform.position + minion.transform.forward * 0.5f, minion.transform.rotation);
         }
         public override void Exit()
         {      

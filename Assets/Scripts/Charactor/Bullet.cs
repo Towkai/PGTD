@@ -13,7 +13,7 @@ namespace Character
         [SerializeField] private LayerMask m_enemyLayer;
         [SerializeField] private MeshRenderer m_meshRenderer;
         [SerializeField] private TrailRenderer m_trailRenderer;
-        [SerializeField] private float m_trailTime = 0.5f;
+        // [SerializeField] private float m_trailTime = 0.5f;
         [SerializeField] private float m_harm; //子彈威力
         [SerializeField] private float m_speed;
         private RecycleEventArg recycleEventArg = null;

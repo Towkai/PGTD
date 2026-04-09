@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     PlayerInput testInput;
     List<InputAction> spawnAction = new List<InputAction>();
-
     void Awake()
     {
         Instance = this;
@@ -28,6 +27,19 @@ public class GameManager : MonoBehaviour
         var spawn = SpawnManager.Instance.Spawn(key, pos, rot);
         return spawn.activeInHierarchy;
     }
+
+#region chat
+    public void OnChat(string msg)
+    {
+        switch (msg)
+        {
+            case "1":
+                Spawn(ConstString.S_Red_Minion);
+                break;            
+        }
+    }
+#endregion
+
 #region test
     public void Test_Spawn(InputAction.CallbackContext ctx)
     {
@@ -35,11 +47,11 @@ public class GameManager : MonoBehaviour
         {
             if (ctx.control.displayName == "Z")
             {
-                Spawn("S.Red.Minion");
+                Spawn(ConstString.S_Red_Minion);
             }
             else if (ctx.control.displayName == "X")
             {
-                Spawn("S.Blue.Minion");
+                Spawn(ConstString.S_Blue_Minion);
             }
             else if (ctx.control.displayName == "C")
             {

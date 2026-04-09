@@ -181,7 +181,8 @@ namespace TikTokLiveUnity.Example
             instance.transform.SetParent(scrJoin.content, false);
             instance.transform.localScale = Vector3.one;
             instance.SetActive(true);
-            Destroy(instance, timeToLive);
+            if (timeToLive >= 0)
+                Destroy(instance, timeToLive);
         }
         /// <summary>
         /// Handler for Like-Event
@@ -196,7 +197,8 @@ namespace TikTokLiveUnity.Example
             instance.transform.SetParent(scrLike.content, false);
             instance.transform.localScale = Vector3.one;
             instance.SetActive(true);
-            Destroy(instance, timeToLive);
+            if (timeToLive >= 0)
+                Destroy(instance, timeToLive);
         }
         /// <summary>
         /// Handler for Comment-Event
@@ -211,7 +213,8 @@ namespace TikTokLiveUnity.Example
             instance.transform.SetParent(scrComment.content, false);
             instance.transform.localScale = Vector3.one;
             instance.SetActive(true);
-            Destroy(instance, timeToLive);
+            if (timeToLive >= 0)
+                Destroy(instance, timeToLive);
         }
         /// <summary>
         /// Requests Image from TikTokLive-Manager
