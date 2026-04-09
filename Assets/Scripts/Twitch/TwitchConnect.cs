@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TwitchConnect : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class TwitchConnect : MonoBehaviour
     #if ODIN_INSPECTOR && UNITY_EDITOR
     List<Sirenix.OdinInspector.ValueDropdownItem<string>> ChannelList = new Sirenix.OdinInspector.ValueDropdownList<string>()
     {
+        {"pagui_aki", "pagui_aki"},
         {"ksonsouchou", "ksonsouchou"},
         {"兎寒うさむ", "usamu_1127"},
         {"火暴可可", "xhibaoger"},
@@ -30,10 +32,13 @@ public class TwitchConnect : MonoBehaviour
         {"蘇雪霏", "sharronsu_ch"},
     };
     [Sirenix.OdinInspector.ValueDropdown("ChannelList")]
-    [Sirenix.OdinInspector.OnValueChanged("ConnectToTwitch")]
+    [Sirenix.OdinInspector.OnValueChanged("ConnectToTwitchBtn")]
     #endif
     [SerializeField] 
     string Channel = "ksonsouchou";
+    [SerializeField]
+    private UnityEvent<string> on_chat, on_sub, on_resub, on_subgift, on_submysterygift;
+
     #if ODIN_INSPECTOR && UNITY_EDITOR
     [Sirenix.OdinInspector.Button]
     private void ConnectToTwitchBtn()
@@ -69,10 +74,10 @@ public class TwitchConnect : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        ConnectToTwitch();
-    }
+    // void Awake()
+    // {
+    //     ConnectToTwitch();
+    // }
     
 
     // Update is called once per frame
@@ -119,6 +124,7 @@ public class TwitchConnect : MonoBehaviour
             string msg = GetMessage(message);
 
             Debug.Log($"{user}: {msg}");
+            on_chat?.Invoke(msg);            
         }
 
         // 訂閱 / 贈送事件
@@ -131,26 +137,30 @@ public class TwitchConnect : MonoBehaviour
             {
                 case "sub":
                     Debug.Log($"{user} 訂閱");
+                    on_sub?.Invoke(message);
                     break;
 
                 case "resub":
                     Debug.Log($"{user} 續訂");
+                    on_resub?.Invoke(message);
                     break;
 
                 case "subgift":
                     string recipient = GetTagValue(message, "msg-param-recipient-display-name");
                     Debug.Log($"{user} 贈送訂閱給 {recipient}");
+                    on_subgift?.Invoke(message);
                     break;
 
                 case "submysterygift":
                     string count = GetTagValue(message, "msg-param-mass-gift-count");
                     Debug.Log($"{user} 送了 {count} 個訂閱");
+                    on_submysterygift?.Invoke(message);
                     break;
             }
         }
         else
         {
-            Debug.LogWarning("<color=red>未定義事件。</color> message: " + message);
+            Debug.LogWarning("<color=red>未定義事件。</color>");
         }
     }
 
