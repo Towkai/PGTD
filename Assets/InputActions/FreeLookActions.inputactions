@@ -41,69 +41,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Spawn_S.Red_Minion",
-                    "type": "Button",
-                    "id": "591d3be2-df9e-42f5-8b5b-edae850ca690",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Spawn_S.Blue_Minion",
-                    "type": "Button",
-                    "id": "fbdf3e27-9a82-4310-b859-acca6a0647b8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Destroy_S.All_Minion",
-                    "type": "Button",
-                    "id": "9abdd925-5e31-471f-addd-daf7962b64f3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "7f08207a-c5b8-4f3a-bb85-1e31393abada",
-                    "path": "<Keyboard>/z",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Spawn_S.Red_Minion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1f9a21cd-89a7-40a2-9dfb-a1b7894342dd",
-                    "path": "<Keyboard>/c",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Destroy_S.All_Minion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f31a4f7e-a229-4dfe-a249-3970024a513d",
-                    "path": "<Keyboard>/x",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Spawn_S.Blue_Minion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WSADQE",
                     "id": "2dcc0ced-0b40-4925-9c8d-1b10a584c0ec",

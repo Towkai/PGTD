@@ -425,6 +425,96 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &245174710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245174711}
+  - component: {fileID: 245174712}
+  m_Layer: 0
+  m_Name: TikTok
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &245174711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245174710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1470398179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245174712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245174710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd2f1a4b3a63b049b35bb1ba00aefb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userName: doggy0300
+--- !u!1 &252933140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 252933142}
+  - component: {fileID: 252933141}
+  m_Layer: 0
+  m_Name: ConnectToTikTok
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &252933141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252933140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f12f5dad988874b83f8b008a9c575f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userName: werety66678
+--- !u!4 &252933142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252933140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6.1421356, z: 4.1421366}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &278727818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1376411318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1536,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376411317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1384ca7518e82854ea7a99c3e170fa9c, type: 3}
   m_Name: 
@@ -1508,6 +1598,7 @@ GameObject:
   - component: {fileID: 1390653926}
   - component: {fileID: 1390653925}
   - component: {fileID: 1390653927}
+  - component: {fileID: 1390653928}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -1585,11 +1676,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa209c0b1dce7c344bd92b79c3716c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 656204499}
+  playerInput: {fileID: 1390653928}
   allowMove: 0
   moveSpeed: 0.1
   rotateSpeed: 0.2
   rotateSpace: 1
+--- !u!114 &1390653928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390653924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 865b3326eb3b34142ba35247a2665c7c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 63486858-97e1-4dff-848d-4cba460459e0
+    m_ActionName: 'FreeLook/Free_Move[/Keyboard/w,/Keyboard/upArrow,/Mouse/scroll/up,/Keyboard/s,/Keyboard/downArrow,/Mouse/scroll/down,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/Keyboard/q,/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Zoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f59c9a7b-e1bb-402a-be2f-427bf7e35c32
+    m_ActionName: 'FreeLook/Free_Zoom[/Mouse/scroll/up,/Mouse/scroll/down]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a68a6eba-b28e-4018-8689-ddcf183c8fa9
+    m_ActionName: 'FreeLook/Free_Trigger[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Rotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cb9f206d-bd2a-444b-a0b1-21ec8d09d115
+    m_ActionName: 'FreeLook/Free_Rotate[/Mouse/delta]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: FreeLook
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1463056354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1704,13 +1877,356 @@ PrefabInstance:
       objectReference: {fileID: 1110584663}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8700
+      value: 8706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 812045e116767974fb2073ba08968cdf, type: 3}
+--- !u!1 &1470398177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1470398179}
+  - component: {fileID: 1470398178}
+  m_Layer: 0
+  m_Name: LiveController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1470398178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470398177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771656661bf09b94a926cedd24fdc96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 245174712}
+  onChat:
+    m_PersistentCalls:
+      m_Calls: []
+  onLike:
+    m_PersistentCalls:
+      m_Calls: []
+  onGift:
+    m_PersistentCalls:
+      m_Calls: []
+  onJoin:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1470398179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470398177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6.1421356, z: 4.1421366}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1659691463}
+  - {fileID: 245174711}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1534469381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534469383}
+  - component: {fileID: 1534469382}
+  m_Layer: 0
+  m_Name: TikTokLiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1534469382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534469381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92b8c1dfcc75c74594bc6166bb12687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRootObject: 0
+  texCacheSize: 2048
+  autoConnect: 0
+  autoConnectHostId: 
+  settings:
+    Timeout: 20
+    ReconnectInterval: 1
+    PollingInterval: 1
+    EnableCompression: 1
+    ClientLanguage: en-US
+    SocketBufferSize: 500000
+    RetryOnConnectionFailure: 1
+    SkipRoomInfo: 0
+    HandleExistingMessagesOnConnect: 1
+    DownloadGiftInfo: 1
+    SigningKey: 
+    CustomSigningServerUrl: 
+    PrintToConsole: 1
+    LogLevel: 3
+    PrintMessageData: 0
+    CheckForUnparsedData: 0
+  onException:
+    m_PersistentCalls:
+      m_Calls: []
+  onConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+  onAccessControl:
+    m_PersistentCalls:
+      m_Calls: []
+  onAccessRecall:
+    m_PersistentCalls:
+      m_Calls: []
+  onAlertBoxAuditResult:
+    m_PersistentCalls:
+      m_Calls: []
+  onBarrage:
+    m_PersistentCalls:
+      m_Calls: []
+  onBindingGift:
+    m_PersistentCalls:
+      m_Calls: []
+  onBoostCardMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onBottomMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onCaption:
+    m_PersistentCalls:
+      m_Calls: []
+  onChatMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onControlMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onLivePaused:
+    m_PersistentCalls:
+      m_Calls: []
+  onLiveResumed:
+    m_PersistentCalls:
+      m_Calls: []
+  onLiveEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnhandledControlMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onEmoteChat:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnvelope:
+    m_PersistentCalls:
+      m_Calls: []
+  onGameRankNotify:
+    m_PersistentCalls:
+      m_Calls: []
+  onGift:
+    m_PersistentCalls:
+      m_Calls: []
+  onGiftMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onGiftPrompt:
+    m_PersistentCalls:
+      m_Calls: []
+  onGoalUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onImDelete:
+    m_PersistentCalls:
+      m_Calls: []
+  onInRoomBannerMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onLike:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkLayerMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMicFanTicketMethod:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMicMethod:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkState:
+    m_PersistentCalls:
+      m_Calls: []
+  onLiveIntro:
+    m_PersistentCalls:
+      m_Calls: []
+  onMarqueeAnnouncement:
+    m_PersistentCalls:
+      m_Calls: []
+  onMemberMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnhandledMemberMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onJoin:
+    m_PersistentCalls:
+      m_Calls: []
+  onSubscribe:
+    m_PersistentCalls:
+      m_Calls: []
+  onMsgDetect:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotice:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotify:
+    m_PersistentCalls:
+      m_Calls: []
+  onPartnershipDropsUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onPartnershipGameOffline:
+    m_PersistentCalls:
+      m_Calls: []
+  onPartnershipPunish:
+    m_PersistentCalls:
+      m_Calls: []
+  onPerception:
+    m_PersistentCalls:
+      m_Calls: []
+  onPoll:
+    m_PersistentCalls:
+      m_Calls: []
+  onRankText:
+    m_PersistentCalls:
+      m_Calls: []
+  onRankUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onRoomMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onRoomUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onRoomVerify:
+    m_PersistentCalls:
+      m_Calls: []
+  onSocialMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onFollow:
+    m_PersistentCalls:
+      m_Calls: []
+  onShare:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnhandledSocialMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onSpeaker:
+    m_PersistentCalls:
+      m_Calls: []
+  onSubCapsule:
+    m_PersistentCalls:
+      m_Calls: []
+  onSubNotify:
+    m_PersistentCalls:
+      m_Calls: []
+  onSubPinEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onSubscriptionNotify:
+    m_PersistentCalls:
+      m_Calls: []
+  onToast:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnauthorizedMember:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnhandled:
+    m_PersistentCalls:
+      m_Calls: []
+  onGiftBroadcast:
+    m_PersistentCalls:
+      m_Calls: []
+  onHourlyRank:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMicArmies:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMicBattle:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkMicBattlePunishFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  onLinkmicBattleTask:
+    m_PersistentCalls:
+      m_Calls: []
+  onOecLiveShopping:
+    m_PersistentCalls:
+      m_Calls: []
+  onQuestionNew:
+    m_PersistentCalls:
+      m_Calls: []
+  onRoomPinMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  onSystemMessage:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1534469383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534469381}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653457393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +2275,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1659691462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659691463}
+  - component: {fileID: 1659691464}
+  m_Layer: 0
+  m_Name: Twitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1659691463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659691462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1470398179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1659691464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659691462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc106e063f7dacc45827efb06ebb5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: pagui_aki
+  oauth: oauth:rn9mokua611pk0a82ex217kwcpe7lh
+  channel: pagui_aki
+  reconnectDelay: 60
 --- !u!4 &1711071114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
@@ -2069,7 +2633,7 @@ PrefabInstance:
       objectReference: {fileID: 1956066657}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8709
+      value: 8715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2187,4 +2751,7 @@ SceneRoots:
   - {fileID: 1463056354}
   - {fileID: 1653457395}
   - {fileID: 1376411319}
+  - {fileID: 252933142}
+  - {fileID: 1470398179}
   - {fileID: 940369176}
+  - {fileID: 1534469383}
