@@ -29,11 +29,11 @@ namespace Character
         public override void Enter()
         {
             base.Enter();
-            minion.Target = null;
-            minion.SetNavStart();
-#if UNITY_EDITOR
-            minion.onDrawGizmos(true, detectRange);
-#endif
+//             minion.Target = null;
+//             minion.SetNavStart();
+// #if UNITY_EDITOR
+//             minion.onDrawGizmos(true, detectRange);
+// #endif
         }
         public override void Update()
         {
@@ -45,9 +45,9 @@ namespace Character
         public override void Exit()
         {      
             base.Exit();
-#if UNITY_EDITOR
-            minion.onDrawGizmos(false);
-#endif
+// #if UNITY_EDITOR
+//             minion.onDrawGizmos(false);
+// #endif
         }
     }
     public class MinionChaseState : MinionBaseState //追小怪
@@ -62,10 +62,10 @@ namespace Character
         public override void Enter()
         {
             base.Enter();
-#if UNITY_EDITOR
-            minion.onDrawGizmos(true, attackRange);
-#endif
-            minion.SetNavStart();
+// #if UNITY_EDITOR
+//             minion.onDrawGizmos(true, attackRange);
+// #endif
+//             minion.SetNavStart();
         }
         public override void Update()
         {
@@ -77,9 +77,9 @@ namespace Character
         public override void Exit()
         {      
             base.Exit();
-#if UNITY_EDITOR
-            minion.onDrawGizmos(false);
-#endif
+// #if UNITY_EDITOR
+//             minion.onDrawGizmos(false);
+// #endif
         }
     }
     public class MinionAttackState : MinionBaseState //攻擊
@@ -95,7 +95,7 @@ namespace Character
         public override void Enter()
         {
             base.Enter();
-            minion.SetNavStop();
+            // minion.SetNavStop();
         }
         public override void Update()
         {

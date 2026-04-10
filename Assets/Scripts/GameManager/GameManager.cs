@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 using ObjectPool;
 using EventDispatcher;
 using Interfaces;
+using Unity.Netcode;
 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public SpawnManager SpawnManager => SpawnManager.Instance;
     [SerializeField]
     PlayerInput testInput;
     List<InputAction> spawnAction = new List<InputAction>();

@@ -1,33 +1,33 @@
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Character
 {
-    public abstract class CharacterBase : MonoBehaviour
+    public abstract class CharacterBase : NetworkBehaviour
     {
         [SerializeField] protected float m_fullBlood = 10;
-        protected float m_nowBlood;
+
+        protected NetworkVariable<float> m_nowBlood = new NetworkVariable<float>();
+
         public float FullBlood => m_fullBlood;
-#if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.ShowInInspector]
-#endif
-        public float NowBlood => m_nowBlood;
-#if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.Button]
-#endif
+        public float NowBlood => m_nowBlood.Value;
+
         public virtual void Init()
         {
-            m_nowBlood = m_fullBlood;
+            if (IsServer)
+                m_nowBlood.Value = m_fullBlood;
         }
-        /// <summary>
-        /// 受傷
-        /// </summary>
-        /// <param name="value"></param>
+
         public virtual void GetInjured(float value)
         {
-            m_nowBlood -= value;
-            if (NowBlood <= 0)
+            if (!IsServer) return;
+
+            m_nowBlood.Value -= value;
+
+            if (m_nowBlood.Value <= 0)
                 OnDead();
         }
-        public abstract void OnDead();
+
+        public virtual void OnDead() { }
     }
 }

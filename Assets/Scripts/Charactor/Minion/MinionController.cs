@@ -1,6 +1,5 @@
 using System.Collections;
-using EventDispatcher;
-using Interfaces;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,161 +7,123 @@ namespace Character
 {
     public class MinionController : CharacterBase
     {
-#if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.ShowInInspector]
-        private string CurrentState => StateMachine?.CurrentState.id ?? "";
-#endif
         public StateMachine StateMachine { get; private set; }
         public MinionNormalState NormalState { get; private set; }
         public MinionChaseState ChaseState { get; private set; }
         public MinionAttackState AttackState { get; private set; }
+
         [SerializeField] private NavMeshAgent m_navAgent;
         [SerializeField] private float m_speed;
-        public float detectRange = 3.5f; //搜敵範圍
-        public float attackRange = 2f; //攻擊範圍
-        public float attackDelay = 1f; //攻擊間距
+
+        public float detectRange = 3.5f;
+        public float attackRange = 2f;
+        public float attackDelay = 1f;
         public LayerMask enemyLayer;
-        private RecycleEventArg recycleEventArg = null;
 
-        private Transform main_target, m_target;
-#if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.ShowInInspector]
-#endif
-        public Transform Target { 
-            get => m_target == null || m_target.Equals(null) || !m_target.gameObject.activeInHierarchy ? (main_target ??= GameObject.Find(LayerMask.LayerToName((int)Mathf.Log(enemyLayer.value, 2))).transform) : m_target;
-            set => m_target = value;
-        }
-        public void SetNavDestination()
+        private Transform main_target;
+
+        // ✅ 同步 Target
+        private NetworkVariable<ulong> targetId = new NetworkVariable<ulong>();
+
+        public Transform Target
         {
-            m_navAgent.SetDestination(Target.position);
-#if UNITY_EDITOR
-            Debug.DrawLine(this.transform.position, Target.transform.position, Target == main_target ? Color.green : Color.blue);
-#endif
-        }
-        public override void OnDead()
-        {
-            Dispatcher.Instance.Dispatch(recycleEventArg);
-        }
-        public void SetNavStop()
-        {
-            StartCoroutine(NavStop());
-        }
-        IEnumerator NavStop()
-        {
-            for (float t = 0; t < 1; t += Time.deltaTime)
+            get
             {
-                m_navAgent.speed = Mathf.Lerp(m_navAgent.speed, 0, t);
-                yield return null;
-            }
-        }
-        public void SetNavStart()
-        {
-            StartCoroutine(NavStart());
-        }
-        IEnumerator NavStart()
-        {
-            for (float t = 0; t < 1; t += Time.deltaTime)
-            {
-                m_navAgent.speed = Mathf.Lerp(m_navAgent.speed, m_speed, t);
-                yield return null;
+                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(targetId.Value, out var obj))
+                    return obj.transform;
+                return main_target;
             }
         }
 
-        void Awake()
+        public override void OnNetworkSpawn()
         {
+            if (IsServer)
+            {
+                Init();
+            }
+
+            // ❗ Client 不跑 NavMesh
+            if (!IsServer && m_navAgent != null)
+                m_navAgent.enabled = false;
+        }
+
+        public override void Init()
+        {
+            base.Init();
+
             StateMachine = new StateMachine();
 
             NormalState = new MinionNormalState(this, StateMachine, detectRange);
             ChaseState = new MinionChaseState(this, StateMachine, attackRange);
             AttackState = new MinionAttackState(this, StateMachine, attackRange);
-        }
 
+            main_target = GameObject.Find("Tower")?.transform;
 
-        public override void Init()
-        {
-            base.Init();
-            m_nowBlood = m_fullBlood;
-            recycleEventArg ??= new RecycleEventArg(this.transform);
             StateMachine.Initialize(NormalState);
         }
 
         void Update()
         {
+            if (!IsServer) return;
+
             StateMachine.CurrentState.Update();
         }
-        /// <summary>
-        /// 搜尋範圍內的敵人
-        /// </summary>
-        /// <param name="range">單位範圍</param>
-        /// <returns>單位距離</returns>
+
+        public void SetNavDestination()
+        {
+            if (!IsServer) return;
+
+            if (Target != null)
+                m_navAgent.SetDestination(Target.position);
+        }
+
+        public void SetTarget(Transform target)
+        {
+            if (!IsServer) return;
+
+            if (target.TryGetComponent<NetworkObject>(out var netObj))
+                targetId.Value = netObj.NetworkObjectId;
+        }
+
         public float SearchEnemy(float range)
         {
-            Collider[] hits = Physics.OverlapSphere(this.transform.position, range, enemyLayer);
+            Collider[] hits = Physics.OverlapSphere(transform.position, range, enemyLayer);
+
             float closestDistance = float.MaxValue;
-            if (hits.Length > 0)
+            Transform closestTarget = null;
+
+            foreach (var hit in hits)
             {
-                if (hits.Length == 1 && hits[0].gameObject.tag == "Tower")
-                {
-                    this.Target = hits[0].transform;
-                    closestDistance = Distance(hits[0].transform.position, this.transform.position);
-                }
-                else
-                {
-                    Transform closestTarget = null;
+                if (hit.CompareTag("Tower")) continue;
 
-                    foreach (var hit in hits)
-                    {
-                        if (hit.gameObject.tag == "Tower")
-                            continue;
-                        float distance = Distance(hit.transform.position, this.transform.position);
+                float distance = Vector3.Distance(hit.transform.position, transform.position);
 
-                        if (distance < closestDistance)
-                        {
-                            closestDistance = distance;
-                            closestTarget = hit.transform;
-                        }
-                    }
-                    this.Target = closestTarget;
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestTarget = hit.transform;
                 }
             }
+
+            if (closestTarget != null)
+                SetTarget(closestTarget);
+
             return closestDistance;
         }
-        float Distance(Vector3 a, Vector3 b)
+
+        public void Attack()
         {
-            return Mathf.Sqrt((b.x - a.x) * (b.x - a.x) + (b.z - a.z) * (b.z - a.z));
+            if (!IsServer) return;
+
+            // TODO: 傷害計算
+
+            PlayAttackClientRpc();
         }
-#if UNITY_EDITOR
-        bool onDrawBoolean = false;
-        float onDrawRange;
-        
-        public void onDrawGizmos(bool onDrawBoolean)
+
+        [ClientRpc]
+        void PlayAttackClientRpc()
         {
-            this.onDrawBoolean = onDrawBoolean;
+            Debug.Log("Play Attack Animation");
         }
-        public void onDrawGizmos(bool onDrawBoolean, float onDrawRange)
-        {
-            this.onDrawBoolean = onDrawBoolean;
-            this.onDrawRange = onDrawRange;
-        }
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            if (onDrawBoolean)
-                Gizmos.DrawWireSphere(this.transform.position, onDrawRange);
-        }
-        
-#region test
-    public void Test_Spawn(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
-    {
-        if (ctx.phase == UnityEngine.InputSystem.InputActionPhase.Started)
-        {
-            if (ctx.control.displayName == "V")
-            {
-                GameManager.Instance.Spawn("Bullet", this.transform.position + this.transform.forward * 1, this.transform.rotation);
-            }
-        }
-    }
-        #endregion
-#endif
     }
 }
