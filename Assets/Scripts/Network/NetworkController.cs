@@ -1,64 +1,67 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class NetworkController : NetworkBehaviour
+namespace ObjectPool
 {
-    public static NetworkController Instance;
-
-    [Header("Prefabs")]
-    [SerializeField] GameObject minion;
-
-    [Header("Score")]
-    public NetworkVariable<int> scoreA = new NetworkVariable<int>();
-    public NetworkVariable<int> scoreB = new NetworkVariable<int>();
-
-    void Awake()
+    public class NetworkController : NetworkBehaviour
     {
-        Instance = this;
-    }
+        public static NetworkController Instance;
 
-    public override void OnNetworkSpawn()
-    {
-        // 監聽分數變化（Client也會收到）
-        scoreA.OnValueChanged += (oldVal, newVal) =>
+        [Header("Prefabs")]
+        [SerializeField] GameObject minion;
+
+        [Header("Score")]
+        public NetworkVariable<int> scoreA = new NetworkVariable<int>();
+        public NetworkVariable<int> scoreB = new NetworkVariable<int>();
+
+        void Awake()
         {
-            Debug.Log($"Score A: {newVal}");
-        };
+            Instance = this;
+        }
 
-        scoreB.OnValueChanged += (oldVal, newVal) =>
+        public override void OnNetworkSpawn()
         {
-            Debug.Log($"Score B: {newVal}");
-        };
-    }
+            // 監聽分數變化（Client也會收到）
+            scoreA.OnValueChanged += (oldVal, newVal) =>
+            {
+                Debug.Log($"Score A: {newVal}");
+            };
 
-    // =========================
-    // 🎯 給 Host 呼叫（直播事件）
-    // =========================
-    public void OnGiftFromTeamA()
-    {
-        if (!IsServer) return;
+            scoreB.OnValueChanged += (oldVal, newVal) =>
+            {
+                Debug.Log($"Score B: {newVal}");
+            };
+        }
 
-        scoreA.Value += 10;
+        // =========================
+        // 🎯 給 Host 呼叫（直播事件）
+        // =========================
+        public void OnGiftFromTeamA()
+        {
+            if (!IsServer) return;
 
-        SpawnMonsterClientRpc();
-    }
+            scoreA.Value += 10;
 
-    public void OnGiftFromTeamB()
-    {
-        if (!IsServer) return;
+            SpawnMonsterClientRpc();
+        }
 
-        scoreB.Value += 10;
+        public void OnGiftFromTeamB()
+        {
+            if (!IsServer) return;
 
-        SpawnMonsterClientRpc();
-    }
+            scoreB.Value += 10;
 
-    // =========================
-    // 🎯 同步生成怪物
-    // =========================
-    [ClientRpc]
-    void SpawnMonsterClientRpc()
-    {
-        Vector3 pos = Random.insideUnitSphere * 5f;
-        Instantiate(minion, pos, Quaternion.identity);
+            SpawnMonsterClientRpc();
+        }
+
+        // =========================
+        // 🎯 同步生成怪物
+        // =========================
+        [ClientRpc]
+        void SpawnMonsterClientRpc()
+        {
+            Vector3 pos = Random.insideUnitSphere * 5f;
+            Instantiate(minion, pos, Quaternion.identity);
+        }
     }
 }

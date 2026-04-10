@@ -8,8 +8,5 @@ namespace ObjectPool
         public string key;              // pool key
         public GameObject prefab;
         public int initialSize = 10;
-        [SerializeField]
-        public Vector3[] posRange = new Vector3[2];
-        public Vector3 eulerRot;
     }
 }

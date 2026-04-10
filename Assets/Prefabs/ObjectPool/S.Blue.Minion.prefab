@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: be3c85243609fd04abe20ff501eb734f, type: 2}
+    - target: {fileID: 3001185366172657594, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3924524450
+      objectReference: {fileID: 0}
     - target: {fileID: 3680863947133405639, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -84,7 +88,8 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6305467230024855806, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

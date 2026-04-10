@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 6427676519438221070}
   - component: {fileID: 8882857989862569169}
   - component: {fileID: 5985737665045249752}
-  - component: {fileID: 4231573167783104851}
+  - component: {fileID: 3714335535060947466}
   - component: {fileID: 1915710642047490336}
   - component: {fileID: 3002835595946579912}
   - component: {fileID: 6929015487320749250}
+  - component: {fileID: -7278303817544504621}
+  - component: {fileID: -5834541467210444333}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -112,7 +114,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4231573167783104851
+--- !u!114 &3714335535060947466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,28 +123,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 427222491371992105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6307bc2493f511c4982ba15849bab1a8, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recycleTime: 5
-  onSpawn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1915710642047490336}
-        m_TargetAssemblyTypeName: Character.Bullet, Assembly-CSharp
-        m_MethodName: init
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onRecycle:
-    m_PersistentCalls:
-      m_Calls: []
+  GlobalObjectIdHash: 4086417138
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &1915710642047490336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,15 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2a46bc244bea540bbc4499ecacd4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debug: 0
-  m_enemyLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  m_meshRenderer: {fileID: 8882857989862569169}
-  m_trailRenderer: {fileID: 3002835595946579912}
-  m_trailTime: 0.5
-  m_harm: 3
-  m_speed: 0.01
+  ShowTopMostFoldoutHeaderGroup: 1
+  speed: 10
 --- !u!96 &3002835595946579912
 TrailRenderer:
   serializedVersion: 3
@@ -232,7 +221,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0, g: 1, b: 1, a: 1}
-      key1: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -247,7 +236,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 39321
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -298,3 +287,62 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7278303817544504621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427222491371992105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkTransformExpanded: 0
+  AutoOwnerAuthorityTickOffset: 1
+  PositionInterpolationType: 0
+  RotationInterpolationType: 0
+  ScaleInterpolationType: 0
+  PositionLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.1
+  RotationLerpSmoothing: 1
+  RotationMaxInterpolationTime: 0.1
+  ScaleLerpSmoothing: 1
+  ScaleMaxInterpolationTime: 0.1
+  AuthorityMode: 0
+  TickSyncChildren: 0
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  SwitchTransformSpaceWhenParented: 0
+  Interpolate: 1
+  SlerpPosition: 0
+--- !u!114 &-5834541467210444333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427222491371992105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb14b7489850ef47b85e2c0cc77a47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1

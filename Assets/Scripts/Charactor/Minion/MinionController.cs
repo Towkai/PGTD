@@ -66,7 +66,7 @@ namespace Character
         {
             if (!IsServer) return;
 
-            StateMachine.CurrentState.Update();
+            StateMachine?.CurrentState.Update();
         }
 
         public void SetNavDestination()

@@ -1,16 +1,32 @@
 using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using System;
 
-namespace Network
+namespace ObjectPool
 {
     public class NetworkLauncher : MonoBehaviour
     {
         public string ip = "127.0.0.1";
         public ushort port = 7777;
+
 #if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.Button]
+        enum net_type { host, client }
+        [SerializeField]
+        net_type cnt;
+        void Start()
+        {
+            switch (cnt)
+            {
+                case net_type.host:
+                    StartHost();
+                    break;
+                case net_type.client:
+                    StartClient();
+                    break;
+            }        }
 #endif
+
         public void StartHost()
         {
             var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
@@ -20,9 +36,6 @@ namespace Network
             Debug.Log("Start Host");
         }
 
-#if ODIN_INSPECTOR && UNITY_EDITOR
-        [Sirenix.OdinInspector.Button]
-#endif
         public void StartClient()
         {
             var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();

@@ -1474,6 +1474,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1297495373}
   - component: {fileID: 1297495374}
+  - component: {fileID: 1297495375}
+  - component: {fileID: 1297495376}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -1503,12 +1505,54 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297495372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50dcf38931b10e04c8579085adc07389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   poolConfigs:
+  - {fileID: 11400000, guid: ade15e4f8d7017342a36241890f8dcdc, type: 2}
+  - {fileID: 11400000, guid: 572cc76426d260643b128aa122d57552, type: 2}
+  - {fileID: 11400000, guid: 72b005e446eadc7488ef5ca5950e219a, type: 2}
+--- !u!114 &1297495375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297495372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1115984794
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
+--- !u!114 &1297495376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297495372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6e91c1bd9514e4791c19076057c447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  configs:
   - {fileID: 11400000, guid: ade15e4f8d7017342a36241890f8dcdc, type: 2}
   - {fileID: 11400000, guid: 572cc76426d260643b128aa122d57552, type: 2}
   - {fileID: 11400000, guid: 72b005e446eadc7488ef5ca5950e219a, type: 2}
@@ -1560,6 +1604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ip: 127.0.0.1
   port: 7777
+  cnt: 0
 --- !u!114 &1352205853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2670,6 +2715,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3001185366172657594, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 638068365
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001185366172657594, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1345862064
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -2825,33 +2878,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.atime0
-      value: 39321
+    - target: {fileID: 3714335535060947466, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 938945102
       objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.atime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002835595946579912, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 1
+    - target: {fileID: 3714335535060947466, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 4086417138
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
