@@ -1,9 +1,12 @@
+using EventDispatcher;
 using Unity.Netcode;
 using UnityEngine;
 
 public class Bullet : NetworkBehaviour
 {
     public float speed = 10f;
+
+    private bool isDespawned;
 
     void Update()
     {
@@ -14,13 +17,22 @@ public class Bullet : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!IsServer) return;
+        if (!IsServer || isDespawned) return;
+
+        isDespawned = true;
 
         if (other.TryGetComponent<Character.CharacterBase>(out var target))
         {
             target.GetInjured(1);
         }
 
-        GetComponent<NetworkObject>().Despawn();
+        Dispatcher.Instance.Dispatch(new Interfaces.RecycleEventArg(this.transform));
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        base.OnNetworkDespawn();
+
+        isDespawned = false;
     }
 }

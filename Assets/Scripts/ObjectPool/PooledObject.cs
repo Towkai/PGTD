@@ -1,5 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
+using Interfaces;
+using EventDispatcher;
 
 namespace ObjectPool
 {
@@ -25,5 +27,22 @@ namespace ObjectPool
         {
             gameObject.SetActive(false);
         }
+
+        void OnEnable()
+        {
+            Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
+        }
+
+        void OnDisable()
+        {
+            Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
+        }
+
+        private void ReturnToPool(RecycleEventArg e)
+        {
+            if (e.Transform == this.transform)
+                GameManager.Instance.SpawnManager.ReturnToPool(this);
+        }
+        
     }
 }
