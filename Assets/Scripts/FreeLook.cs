@@ -9,9 +9,8 @@ public class FreeLook : MonoBehaviour
     PlayerInput playerInput;
     InputAction moveAction; //wsadqe
     [SerializeField]
-    bool allowMove = false;
-    public float moveSpeed = 0.1f;
-    public float rotateSpeed = 0.2f;
+    bool allowMove = false, allowRot = false;
+    public float moveSpeed = 0.1f, rotateSpeed = 0.2f, grabSpeed = 0.01f;
     [SerializeField]
     Space rotateSpace;
 
@@ -28,9 +27,9 @@ public class FreeLook : MonoBehaviour
     void Move(float speed)
     {
         Vector3 moveValue = moveAction.ReadValue<Vector3>();
-        this.transform.Translate(moveValue.x * speed, moveValue.y * speed, moveValue.z * speed);        
+        this.transform.Translate(moveValue.x * speed, moveValue.y * speed, moveValue.z * speed);
     }
-    public void Move(InputAction.CallbackContext ctx)
+    public void TriggerMove(InputAction.CallbackContext ctx)
     {
         switch (ctx.phase)
         {
@@ -42,13 +41,37 @@ public class FreeLook : MonoBehaviour
                 break;
         }
     }
+    public void TriggerRot(InputAction.CallbackContext ctx)
+    {
+        switch (ctx.phase)
+        {
+            case InputActionPhase.Performed:
+                allowRot = true;
+                break;
+            case InputActionPhase.Canceled:
+                allowRot = false;
+                break;
+        }
+    }
+    public void Move(InputAction.CallbackContext ctx)
+    {
+        Debug.Log(ctx);
+    }
     public void Rotate(InputAction.CallbackContext ctx)
     {
-        if (allowMove && ctx.performed)
+        if (allowRot)
         {
             Vector2 delta = ctx.ReadValue<Vector2>();
             this.transform.Rotate(-delta.y * rotateSpeed, delta.x * rotateSpeed, 0, rotateSpace);
             SetRotationZtoZero(this.transform);
+        }
+    }
+    public void Grab(InputAction.CallbackContext ctx)
+    {
+        if (allowMove)
+        {
+            Vector2 delta = ctx.ReadValue<Vector2>();
+            this.transform.Translate(delta.x * moveSpeed * -0.1f, delta.y * moveSpeed * -0.1f, 0);
         }
     }
     public void Zoom(InputAction.CallbackContext ctx)

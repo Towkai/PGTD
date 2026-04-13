@@ -25,9 +25,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Free_Trigger",
+                    "name": "Free_TriggerMouseRight",
                     "type": "Button",
                     "id": "a68a6eba-b28e-4018-8689-ddcf183c8fa9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Free_TriggerMouseMiddle",
+                    "type": "Button",
+                    "id": "2e336da2-1810-4e16-96b1-45f217b38bbf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -41,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Free_Grab",
+                    "type": "Button",
+                    "id": "5831ea9e-2eca-4140-848e-17fd36166281",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -194,7 +212,18 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Free_Trigger",
+                    "action": "Free_TriggerMouseRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1ac2b1c-e2e2-4b3a-8ff7-1faac92cd20d",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Free_TriggerMouseMiddle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,6 +257,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Free_Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60e79a41-886d-4540-8a1a-510ed6d1026c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Free_Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
