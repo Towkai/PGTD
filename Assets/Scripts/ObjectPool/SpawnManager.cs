@@ -7,6 +7,7 @@ namespace ObjectPool
     public class SpawnManager : NetworkBehaviour
     {
         public static SpawnManager Instance;
+        public NetworkObject m_pool = null;
 
         [SerializeField] private List<PoolConfig> configs;
 
@@ -38,13 +39,14 @@ namespace ObjectPool
 
         private PooledObject CreateNew(PoolConfig config)
         {
-            GameObject go = Instantiate(config.prefab, this.transform);
+            GameObject go = Instantiate(config.prefab);
             var netObj = go.GetComponent<NetworkObject>();
             var pooled = go.GetComponent<PooledObject>();
 
             pooled.SetPool(config.key);
 
-            netObj.Spawn(); // Netcode生成
+            netObj.Spawn(true); // Netcode生成
+            netObj.TrySetParent(m_pool);
 
             return pooled;
         }
@@ -63,12 +65,12 @@ namespace ObjectPool
             obj.OnSpawnFromPool(pos, rot);
 
             // 同步 Transform
-            obj.GetComponent<NetworkObject>().TrySetParent(this.transform);
+            obj.GetComponent<NetworkObject>().TrySetParent(m_pool);
             obj.transform.SetPositionAndRotation(pos, rot);
 
             return obj;
         }
-
+        
         public void ReturnToPool(PooledObject obj)
         {
             if (!IsServer) return;
