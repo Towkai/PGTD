@@ -6,6 +6,7 @@ namespace ObjectPool
     public class PooledObject : NetworkBehaviour
     {
         public string Key { get; private set; }
+        public bool isActive => this.gameObject.activeInHierarchy;
 
         public void SetPool(string key)
         {

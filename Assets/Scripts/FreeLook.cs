@@ -77,8 +77,8 @@ public class FreeLook : MonoBehaviour
     }
     public void Zoom(InputAction.CallbackContext ctx)
     {
-        // if (!allowMove)
-        //     return;
+        if (!allowMove)
+            return;
         switch (ctx.phase)
         {
             case InputActionPhase.Performed:

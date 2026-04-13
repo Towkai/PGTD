@@ -7,12 +7,15 @@ namespace Character
 {
     public class MinionController : CharacterBase
     {
+        public string StateId = string.Empty;
         public StateMachine StateMachine { get; private set; }
         public MinionNormalState NormalState { get; private set; }
         public MinionChaseState ChaseState { get; private set; }
         public MinionAttackState AttackState { get; private set; }
 
         [SerializeField] private NavMeshAgent m_navAgent;
+        private Coroutine m_navCoroutine = null;
+        public bool hasDestination;
         [SerializeField] private float m_speed;
 
         public float detectRange = 3.5f;
@@ -20,21 +23,15 @@ namespace Character
         public float attackDelay = 1f;
         public LayerMask enemyLayer;
 
-        private Transform main_target;
+        [SerializeField] private Transform main_target = null;
+        [SerializeField] private Transform m_target = null;
 
-        // ✅ 同步 Target
-        private NetworkVariable<ulong> targetId = new NetworkVariable<ulong>();
 
-        public Transform Target
+        public Transform Target => m_target == null || !m_target.gameObject.activeInHierarchy ? main_target : m_target;
+        public bool IsInLayerMask(GameObject obj)
         {
-            get
-            {
-                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(targetId.Value, out var obj))
-                    return obj.transform;
-                return main_target;
-            }
+            return (enemyLayer.value | (1 << obj.layer)) == enemyLayer;
         }
-
         public override void OnNetworkSpawn()
         {
             if (IsServer)
@@ -50,39 +47,76 @@ namespace Character
         public override void Init()
         {
             base.Init();
-
+            StateMachine?.Initialize(NormalState);
+        }
+        void OnEnable()
+        {
+            Init();
+        }
+        void Awake()
+        {
             StateMachine = new StateMachine();
 
-            NormalState = new MinionNormalState(this, StateMachine, detectRange);
-            ChaseState = new MinionChaseState(this, StateMachine, attackRange);
             AttackState = new MinionAttackState(this, StateMachine, attackRange);
+            ChaseState = new MinionChaseState(this, StateMachine, attackRange);
+            NormalState = new MinionNormalState(this, StateMachine, detectRange);
 
-            main_target = GameObject.Find("Tower")?.transform;
-
-            StateMachine.Initialize(NormalState);
+            if (main_target == null)
+            {
+                GameObject[] towers =  GameObject.FindGameObjectsWithTag("Tower");
+                foreach (var tower in towers)
+                    if (IsInLayerMask(tower))
+                        main_target = tower.transform;
+            }         
         }
-
         void Update()
         {
             if (!IsServer) return;
 
             StateMachine?.CurrentState.Update();
         }
-
-        public void SetNavDestination()
+        public void StartNavDestination()
         {
             if (!IsServer) return;
-
+            m_navCoroutine = StartCoroutine(SetNavDestination());
+        }
+        public void StopNavDestination()
+        {
+            if (!IsServer) return;
+            hasDestination = false;
+        }
+        IEnumerator SetNavDestination()
+        {
+            if (!IsServer) yield break;
             if (Target != null)
-                m_navAgent.SetDestination(Target.position);
+            {
+                hasDestination = true;
+                while (hasDestination)
+                {
+                    m_navAgent.SetDestination(Target.position);
+                    m_navAgent.speed = m_speed;
+                    for (float t = 0; t < 0.2f; t += Time.deltaTime) 
+                    {
+#if UNITY_EDITOR
+                        Debug.DrawLine(this.transform.position, Target.transform.position, Target == main_target ? Color.green : Color.blue);
+#endif
+                        yield return null;
+                    }
+                }
+                for (float t = 0.2f; t > 0; t -= Time.deltaTime / 0.2f)
+                {
+                    m_navAgent.speed = t;
+                    yield return null;
+                }
+                m_navAgent.speed = 0;
+                m_navCoroutine = null;
+            }
         }
 
         public void SetTarget(Transform target)
         {
             if (!IsServer) return;
-
-            if (target.TryGetComponent<NetworkObject>(out var netObj))
-                targetId.Value = netObj.NetworkObjectId;
+            this.m_target = target;
         }
 
         public float SearchEnemy(float range)
@@ -111,13 +145,12 @@ namespace Character
             return closestDistance;
         }
 
+
         public void Attack()
         {
             if (!IsServer) return;
-
-            // TODO: 傷害計算
-
-            PlayAttackClientRpc();
+            this.transform.forward = Vector3.ProjectOnPlane(Target.position - this.transform.position, Vector3.up);
+            GameManager.Instance.Spawn(ConstString.Bullet, this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
         }
 
         [ClientRpc]
@@ -125,5 +158,25 @@ namespace Character
         {
             Debug.Log("Play Attack Animation");
         }
+#if UNITY_EDITOR
+        bool onDrawBoolean = false;
+        float onDrawRange;
+        
+        public void onDrawGizmos(bool onDrawBoolean)
+        {
+            this.onDrawBoolean = onDrawBoolean;
+        }
+        public void onDrawGizmos(bool onDrawBoolean, float onDrawRange)
+        {
+            this.onDrawBoolean = onDrawBoolean;
+            this.onDrawRange = onDrawRange;
+        }
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if (onDrawBoolean)
+                Gizmos.DrawWireSphere(this.transform.position, onDrawRange);
+        }
+#endif
     }
 }
