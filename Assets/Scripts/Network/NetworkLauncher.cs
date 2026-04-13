@@ -1,9 +1,8 @@
 using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
-using System;
 
-namespace ObjectPool
+namespace Network
 {
     public class NetworkLauncher : MonoBehaviour
     {
@@ -24,7 +23,8 @@ namespace ObjectPool
                 case net_type.client:
                     StartClient();
                     break;
-            }        }
+            }
+        }
 #endif
 
         public void StartHost()

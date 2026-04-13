@@ -42,9 +42,9 @@ namespace Character
                 Init();
             }
 
-            // ❗ Client 不跑 NavMesh
-            if (!IsServer && m_navAgent != null)
-                m_navAgent.enabled = false;
+            // 只有 Server 會跑 NavMesh
+            if (m_navAgent != null)
+                m_navAgent.enabled = IsServer;
         }
 
         public override void Init()
