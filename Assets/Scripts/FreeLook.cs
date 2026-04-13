@@ -10,9 +10,10 @@ public class FreeLook : MonoBehaviour
     InputAction moveAction; //wsadqe
     [SerializeField]
     bool allowMove = false, allowRot = false;
-    public float moveSpeed = 0.1f, rotateSpeed = 0.2f, grabSpeed = 0.01f;
+    public float moveSpeed = 0.05f, rotateSpeed = 0.1f, zoomSpeed = 1;
     [SerializeField]
-    Space rotateSpace;
+    Space rotateSpace = Space.Self;
+
 
     void Start()
     {
@@ -22,18 +23,19 @@ public class FreeLook : MonoBehaviour
     void Update()
     {
         if (allowMove)
-            Move(moveSpeed);
+            this.transform.Translate(MoveValue(moveAction));
+
     }
-    void Move(float speed)
+    Vector3 MoveValue(InputAction action)
     {
-        Vector3 moveValue = moveAction.ReadValue<Vector3>();
-        this.transform.Translate(moveValue.x * speed, moveValue.y * speed, moveValue.z * speed);
+        Vector3 moveValue = action.ReadValue<Vector3>();
+        return moveValue * moveSpeed;
     }
     public void TriggerMove(InputAction.CallbackContext ctx)
     {
         switch (ctx.phase)
         {
-            case InputActionPhase.Performed:
+            case InputActionPhase.Started:
                 allowMove = true;
                 break;
             case InputActionPhase.Canceled:
@@ -45,7 +47,7 @@ public class FreeLook : MonoBehaviour
     {
         switch (ctx.phase)
         {
-            case InputActionPhase.Performed:
+            case InputActionPhase.Started:
                 allowRot = true;
                 break;
             case InputActionPhase.Canceled:
@@ -55,41 +57,39 @@ public class FreeLook : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext ctx)
     {
-        Debug.Log(ctx);
+        if (!allowMove)
+            return;
+        this.transform.Translate(MoveValue(ctx.action));
     }
     public void Rotate(InputAction.CallbackContext ctx)
     {
-        if (allowRot)
-        {
-            Vector2 delta = ctx.ReadValue<Vector2>();
-            this.transform.Rotate(-delta.y * rotateSpeed, delta.x * rotateSpeed, 0, rotateSpace);
-            SetRotationZtoZero(this.transform);
-        }
+        if (!allowRot)
+           return;
+        Vector2 delta = ctx.ReadValue<Vector2>();
+        this.transform.Rotate(-delta.y * rotateSpeed, delta.x * rotateSpeed, 0, rotateSpace);
+        SetRotationZtoZero();
     }
     public void Grab(InputAction.CallbackContext ctx)
     {
-        if (allowMove)
-        {
-            Vector2 delta = ctx.ReadValue<Vector2>();
-            this.transform.Translate(delta.x * moveSpeed * -0.1f, delta.y * moveSpeed * -0.1f, 0);
-        }
+        if (!allowMove)
+            return;
+        this.transform.Translate(ctx.action.ReadValue<Vector2>() * moveSpeed * -0.1f);
     }
     public void Zoom(InputAction.CallbackContext ctx)
     {
+        // if (!allowMove)
+        //     return;
         switch (ctx.phase)
         {
-            case InputActionPhase.Started:
-                moveSpeed *= 2;
-                break;
             case InputActionPhase.Performed:
-                moveSpeed /= 2;
+                this.transform.Translate(Vector3.forward * ctx.action.ReadValue<float>() * zoomSpeed);
                 break;
         }
     }
-    void SetRotationZtoZero(Transform transform)
+    void SetRotationZtoZero()
     {
-        Vector3 currentEulerAngles = transform.localEulerAngles;
+        Vector3 currentEulerAngles = this.transform.localEulerAngles;
         currentEulerAngles.z = 0f;
-        transform.localEulerAngles = currentEulerAngles;
+        this.transform.localEulerAngles = currentEulerAngles;
     }
 }

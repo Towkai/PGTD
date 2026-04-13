@@ -1886,8 +1886,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1390653928}
   allowMove: 0
-  moveSpeed: 0.1
-  rotateSpeed: 0.2
+  allowRot: 0
+  moveSpeed: 0.05
+  rotateSpeed: 0.1
+  zoomSpeed: 1
   rotateSpace: 1
 --- !u!114 &1390653928
 MonoBehaviour:
@@ -1915,18 +1917,54 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 63486858-97e1-4dff-848d-4cba460459e0
     m_ActionName: 'FreeLook/Free_Move[/Keyboard/w,/Keyboard/upArrow,/Mouse/scroll/up,/Keyboard/s,/Keyboard/downArrow,/Mouse/scroll/down,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/Keyboard/q,/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Zoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f59c9a7b-e1bb-402a-be2f-427bf7e35c32
     m_ActionName: 'FreeLook/Free_Zoom[/Mouse/scroll/up,/Mouse/scroll/down]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1390653927}
         m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
-        m_MethodName: Trigger
+        m_MethodName: TriggerMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: TriggerRot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1954,6 +1992,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cb9f206d-bd2a-444b-a0b1-21ec8d09d115
     m_ActionName: 'FreeLook/Free_Rotate[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: TriggerMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2e336da2-1810-4e16-96b1-45f217b38bbf
+    m_ActionName: 'FreeLook/Free_TriggerRot[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1390653927}
+        m_TargetAssemblyTypeName: FreeLook, Assembly-CSharp
+        m_MethodName: Grab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5831ea9e-2eca-4140-848e-17fd36166281
+    m_ActionName: 'FreeLook/Free_Grab[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: FreeLook
