@@ -2,6 +2,7 @@ using Unity.Netcode;
 using UnityEngine;
 using Interfaces;
 using EventDispatcher;
+using System.Collections;
 
 namespace ObjectPool
 {
@@ -36,6 +37,16 @@ namespace ObjectPool
         void OnDisable()
         {
             Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
+        }
+
+        public IEnumerator LifeTimer(float t)
+        {
+            while (t > 0)
+            {
+                t -= Time.deltaTime;
+                yield return null;
+            }
+            GameManager.Instance.SpawnManager.ReturnToPool(this);
         }
 
         private void ReturnToPool(RecycleEventArg e)

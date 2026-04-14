@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: S.Blue.Minion
   prefab: {fileID: 4790063693676252485, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
+  recycleTime: -1
   initialSize: 0

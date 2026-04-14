@@ -25,6 +25,7 @@ namespace Character
         public float attackRange = 2f;
         public float attackDelay = 1f;
         public LayerMask enemyLayer;
+        private bool isInited = false;
 
         [SerializeField] private Transform main_target = null;
         [SerializeField] private Transform m_target = null;
@@ -46,19 +47,29 @@ namespace Character
         {
             base.Init();
             StateMachine?.Initialize(NormalState);
+            isInited = true;
         }
-        void Start()
+        void Start() //當被生成
         {
-            if (IsServer)
+            if (IsServer && !isInited)
                 Init();
+        }
+        void OnEnable() //當被取出
+        {
+            if (IsServer && !isInited)
+                Init();
+        }
+        void OnDisable() //當被回收
+        {
+            isInited = false;
         }
         void Awake()
         {
             StateMachine = new StateMachine();
 
-            AttackState = new MinionAttackState(this, StateMachine, attackRange);
-            ChaseState = new MinionChaseState(this, StateMachine, attackRange);
             NormalState = new MinionNormalState(this, StateMachine, detectRange);
+            ChaseState = new MinionChaseState(this, StateMachine, attackRange);
+            AttackState = new MinionAttackState(this, StateMachine, attackRange);
             DeadState = new MinionDeadState(this, StateMachine);
 
             if (main_target == null)
@@ -71,7 +82,7 @@ namespace Character
         }
         void Update()
         {
-            if (!IsServer) return;
+            if (!IsServer || !isInited) return;
 
             StateMachine?.CurrentState.Update();
         }

@@ -58,11 +58,14 @@ namespace ObjectPool
 
             var pool = poolDict[key];
 
+            PoolConfig config = GetConfig(key);
             PooledObject obj = pool.Count > 0
                 ? pool.Dequeue()
-                : CreateNew(GetConfig(key));
+                : CreateNew(config);
 
             obj.OnSpawnFromPool(pos, rot);
+            if (config.recycleTime > 0)
+                obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
             // 同步 Transform
             obj.GetComponent<NetworkObject>().TrySetParent(m_pool);
