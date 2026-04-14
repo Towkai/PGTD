@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IpAddressConfig
   m_EditorClassIdentifier: 
   ip: 127.0.0.1
-  port: 7777
-  cnt: 0
+  port: 7778
+  debug: 0

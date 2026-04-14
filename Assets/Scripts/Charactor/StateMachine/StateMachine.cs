@@ -8,9 +8,9 @@ public abstract class State
         this.stateMachine = stateMachine;
     }
 
-    public virtual void Enter() { UnityEngine.Debug.Log($"StateEnter: {id}"); }
-    public virtual void Exit() { UnityEngine.Debug.Log($"StateExit: {id}"); }
-    public virtual void Update() { UnityEngine.Debug.Log($"StateUpdate: {id}"); }
+    public virtual void Enter() { /*UnityEngine.Debug.Log($"StateEnter: {id}");*/ }
+    public virtual void Exit() { /*UnityEngine.Debug.Log($"StateExit: {id}");*/ }
+    public virtual void Update() { /*UnityEngine.Debug.Log($"StateUpdate: {id}");*/ }
     public virtual void FixedUpdate() { }
 }
 public class StateMachine

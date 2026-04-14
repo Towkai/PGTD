@@ -37,11 +37,6 @@ namespace Character
         }
         public override void OnNetworkSpawn()
         {
-            if (IsServer)
-            {
-                Init();
-            }
-
             // 只有 Server 會跑 NavMesh
             if (m_navAgent != null)
                 m_navAgent.enabled = IsServer;
@@ -51,6 +46,11 @@ namespace Character
         {
             base.Init();
             StateMachine?.Initialize(NormalState);
+        }
+        void OnEnable()
+        {
+            if (IsServer)
+                Init();
         }
         void Awake()
         {
@@ -78,6 +78,8 @@ namespace Character
         public void StartNavDestination()
         {
             if (!IsServer) return;
+            if (m_navCoroutine != null)
+                StopCoroutine(m_navCoroutine);
             m_navCoroutine = StartCoroutine(SetNavDestination());
         }
         public void StopNavDestination()
