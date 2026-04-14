@@ -14,8 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: S.Blue.Minion
   prefab: {fileID: 4790063693676252485, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
-  initialSize: 10
-  posRange:
-  - {x: 10, y: 0, z: -4}
-  - {x: 14, y: 0, z: 4}
-  eulerRot: {x: 0, y: 270, z: 0}
+  initialSize: 0

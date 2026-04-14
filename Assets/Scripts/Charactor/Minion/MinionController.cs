@@ -47,7 +47,7 @@ namespace Character
             base.Init();
             StateMachine?.Initialize(NormalState);
         }
-        void OnEnable()
+        void Start()
         {
             if (IsServer)
                 Init();

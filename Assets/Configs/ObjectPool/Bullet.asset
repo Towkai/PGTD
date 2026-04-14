@@ -14,8 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: Bullet
   prefab: {fileID: 427222491371992105, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-  initialSize: 10
-  posRange:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  eulerRot: {x: 0, y: 0, z: 0}
+  initialSize: 0

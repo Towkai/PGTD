@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ObjectPool
@@ -7,6 +8,7 @@ namespace ObjectPool
     {
         public string key;              // pool key
         public GameObject prefab;
-        public int initialSize = 10;
+        [Range(0, Byte.MaxValue)]
+        public int initialSize;
     }
 }
