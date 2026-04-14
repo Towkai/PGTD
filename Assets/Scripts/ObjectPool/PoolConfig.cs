@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ObjectPool
 {
-    [CreateAssetMenu(menuName = "Pool/Config")]
+    [CreateAssetMenu(menuName = "MyConfig/Pool")]
     public class PoolConfig : ScriptableObject
     {
         public string key;              // pool key
