@@ -128,22 +128,31 @@ namespace Character
 
             float closestDistance = float.MaxValue;
             Transform closestTarget = null;
-
-            foreach (var hit in hits)
+            float distance;
+            if (hits.Length == 0)
+                closestTarget = null;
+            else if (hits.Length == 1)
             {
-                if (hit.CompareTag("Tower")) continue;
-
-                float distance = Vector3.Distance(hit.transform.position, transform.position);
-
-                if (distance < closestDistance)
+                closestTarget = hits[0].transform;
+                closestDistance = Vector3.Distance(hits[0].transform.position, transform.position);
+            }
+            else
+            {                    
+                foreach (var hit in hits)
                 {
-                    closestDistance = distance;
-                    closestTarget = hit.transform;
+                    if (hit.CompareTag("Tower")) continue;
+
+                    distance = Vector3.Distance(hit.transform.position, transform.position);
+
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestTarget = hit.transform;
+                    }
                 }
             }
 
-            if (closestTarget != null)
-                SetTarget(closestTarget);
+            SetTarget(closestTarget);
 
             return closestDistance;
         }

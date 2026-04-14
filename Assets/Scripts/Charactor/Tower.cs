@@ -6,7 +6,7 @@ namespace Character
     public class Tower : CharacterBase
     {
         [SerializeField] Transform m_bloodBar;
-        void Start()
+        public override void OnNetworkSpawn()
         {
             Init();
         }
