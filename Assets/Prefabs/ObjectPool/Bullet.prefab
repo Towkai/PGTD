@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6929015487320749250}
   - component: {fileID: -7278303817544504621}
   - component: {fileID: -5834541467210444333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  speed: 10
+  speed: 5
 --- !u!96 &3002835595946579912
 TrailRenderer:
   serializedVersion: 3

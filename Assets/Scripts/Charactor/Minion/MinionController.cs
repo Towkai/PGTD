@@ -1,4 +1,6 @@
 using System.Collections;
+using EventDispatcher;
+using Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,6 +14,7 @@ namespace Character
         public MinionNormalState NormalState { get; private set; }
         public MinionChaseState ChaseState { get; private set; }
         public MinionAttackState AttackState { get; private set; }
+        public MinionDeadState DeadState { get; private set; }
 
         [SerializeField] private NavMeshAgent m_navAgent;
         private Coroutine m_navCoroutine = null;
@@ -49,10 +52,6 @@ namespace Character
             base.Init();
             StateMachine?.Initialize(NormalState);
         }
-        void OnEnable()
-        {
-            Init();
-        }
         void Awake()
         {
             StateMachine = new StateMachine();
@@ -60,6 +59,7 @@ namespace Character
             AttackState = new MinionAttackState(this, StateMachine, attackRange);
             ChaseState = new MinionChaseState(this, StateMachine, attackRange);
             NormalState = new MinionNormalState(this, StateMachine, detectRange);
+            DeadState = new MinionDeadState(this, StateMachine);
 
             if (main_target == null)
             {
@@ -103,7 +103,8 @@ namespace Character
                         yield return null;
                     }
                 }
-                for (float t = 0.2f; t > 0; t -= Time.deltaTime / 0.2f)
+                float stopTime = 1;
+                for (float t = stopTime; t > 0; t -= Time.deltaTime / stopTime)
                 {
                     m_navAgent.speed = t;
                     yield return null;
@@ -144,19 +145,17 @@ namespace Character
 
             return closestDistance;
         }
-
-
-        public void Attack()
+        [ClientRpc]
+        public void AttackClientRpc()
         {
             if (!IsServer) return;
             this.transform.forward = Vector3.ProjectOnPlane(Target.position - this.transform.position, Vector3.up);
             GameManager.Instance.Spawn(ConstString.Bullet, this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
         }
-
-        [ClientRpc]
-        void PlayAttackClientRpc()
+        public override void OnDead()
         {
-            Debug.Log("Play Attack Animation");
+            base.OnDead();
+            StateMachine.ChangeState(DeadState);
         }
 #if UNITY_EDITOR
         bool onDrawBoolean = false;

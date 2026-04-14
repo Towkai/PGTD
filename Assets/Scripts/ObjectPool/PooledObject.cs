@@ -41,7 +41,11 @@ namespace ObjectPool
         private void ReturnToPool(RecycleEventArg e)
         {
             if (e.Transform == this.transform)
+            {
+                e.OnRecycle?.Invoke();
                 GameManager.Instance.SpawnManager.ReturnToPool(this);
+                // networkObject.Despawn();
+            }
         }
         
     }

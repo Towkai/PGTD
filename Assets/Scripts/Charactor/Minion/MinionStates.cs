@@ -1,3 +1,5 @@
+using EventDispatcher;
+using Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -102,14 +104,36 @@ namespace Character
                 stateMachine.ChangeState(minion.NormalState);
 #region 攻擊週期
             if (timer == 0)
-                minion.Attack();
+                minion.AttackClientRpc();
             else if (timer > minion.attackDelay)
             {
-                minion.Attack();
+                minion.AttackClientRpc();
                 timer = 0;
             }
             timer += Time.deltaTime;
 #endregion
+        }
+        public override void Exit()
+        {      
+            base.Exit();
+        }
+    }
+    public class MinionDeadState : MinionBaseState //死亡
+    {
+        RecycleEventArg recycleEventArg;
+        public MinionDeadState(MinionController minion, StateMachine stateMachine): base(minion, stateMachine, "Dead")
+        {
+            recycleEventArg = new RecycleEventArg(minion.transform, minion.Init);
+        }
+        public override void Enter()
+        {
+            base.Enter();
+            minion.Init();
+            Dispatcher.Instance.Dispatch(recycleEventArg);
+        }
+        public override void Update()
+        {
+            base.Update();
         }
         public override void Exit()
         {      
