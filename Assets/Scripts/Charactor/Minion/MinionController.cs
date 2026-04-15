@@ -1,6 +1,4 @@
 using System.Collections;
-using EventDispatcher;
-using Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
@@ -25,6 +23,7 @@ namespace Character
         public float attackRange = 2f;
         public float attackDelay = 1f;
         public LayerMask enemyLayer;
+        public LayerMask companionLayer;
         private bool isInited = false;
 
         [SerializeField] private Transform main_target = null;
@@ -35,6 +34,13 @@ namespace Character
         public bool IsInLayerMask(GameObject obj)
         {
             return (enemyLayer.value | (1 << obj.layer)) == enemyLayer;
+        }
+        public string GetLayerNumber(LayerMask layer)
+        {
+            for (int i = 0; i < byte.MaxValue; i++)
+                if (layer.value == 1 << i)
+                    return LayerMask.LayerToName(i);
+            return LayerMask.LayerToName(0);
         }
         public override void OnNetworkSpawn()
         {
@@ -173,8 +179,9 @@ namespace Character
         {
             if (!IsServer) return;
             this.transform.forward = Vector3.ProjectOnPlane(Target.position - this.transform.position, Vector3.up);
-            GameManager.Instance.Spawn(ConstString.Bullet, this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
+            GameManager.Instance.Spawn($"{GetLayerNumber(companionLayer)}.{ConstString.Bullet}", this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
         }
+
         public override void OnDead()
         {
             base.OnDead();

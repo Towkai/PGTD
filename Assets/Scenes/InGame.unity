@@ -1599,6 +1599,7 @@ MonoBehaviour:
   configs:
   - {fileID: 11400000, guid: ade15e4f8d7017342a36241890f8dcdc, type: 2}
   - {fileID: 11400000, guid: 572cc76426d260643b128aa122d57552, type: 2}
+  - {fileID: 11400000, guid: 53733443e517e7248829a52728798686, type: 2}
   - {fileID: 11400000, guid: 72b005e446eadc7488ef5ca5950e219a, type: 2}
 --- !u!1 &1352205848
 GameObject:

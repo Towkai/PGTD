@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 8631558761940507815, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
+      propertyPath: companionLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6305467230024855806, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
     m_RemovedGameObjects: []

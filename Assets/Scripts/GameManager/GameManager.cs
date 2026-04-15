@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public bool Spawn(string key, Vector3 pos, Quaternion rot)
     {
         var spawn = SpawnManager.Instance.Spawn(key, pos, rot);
-        return spawn.gameObject.activeInHierarchy;
+        return spawn != null;
     }
 
 #region chat

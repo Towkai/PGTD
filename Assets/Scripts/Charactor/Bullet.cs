@@ -8,11 +8,16 @@ using UnityEngine.PlayerLoop;
 public class Bullet : ObjectPool.PooledObject
 {
     public float speed = 10f;
-
     private bool isDespawned;
-
     private RecycleEventArg recycleEventArg;
+    public LayerMask companionLayer;
 
+    public bool IsEnemyLayerMask(GameObject obj)
+    {
+        if (obj.layer == 1)
+            return false;
+        return (companionLayer.value | (1 << obj.layer)) > companionLayer;
+    }
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
@@ -30,7 +35,7 @@ public class Bullet : ObjectPool.PooledObject
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!IsServer || isDespawned) return;
+        if (!IsServer || isDespawned || !IsEnemyLayerMask(other.gameObject)) return;
         isDespawned = true;   
 
 
