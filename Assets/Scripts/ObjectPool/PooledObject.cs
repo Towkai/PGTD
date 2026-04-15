@@ -21,6 +21,7 @@ namespace ObjectPool
         {
             transform.SetPositionAndRotation(pos, rot);
             gameObject.SetActive(true);
+            Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
         }
         protected override void OnNetworkPreSpawn(ref NetworkManager networkManager)
         {
@@ -42,17 +43,8 @@ namespace ObjectPool
         // 回收
         public virtual void OnReturnToPool()
         {
-            gameObject.SetActive(false);
-        }
-
-        void OnEnable()
-        {
-            Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
-        }
-
-        void OnDisable()
-        {
             Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
+            gameObject.SetActive(false);
         }
 
         public IEnumerator LifeTimer(float t)

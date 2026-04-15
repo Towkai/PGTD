@@ -40,13 +40,13 @@ namespace ObjectPool
         private PooledObject CreateNew(PoolConfig config)
         {
             GameObject go = Instantiate(config.prefab);
-            var netObj = go.GetComponent<NetworkObject>();
-            var pooled = go.GetComponent<PooledObject>();
-
-            pooled.SetPool(config.key);
-
-            netObj.Spawn(true); // Netcode生成
-            netObj.TrySetParent(m_pool);
+            if (go.TryGetComponent<PooledObject>(out var pooled))
+                pooled.SetPool(config.key);
+            if (go.TryGetComponent<NetworkObject>(out var netObj))
+            {
+                netObj.Spawn(true); // Netcode生成
+                netObj.TrySetParent(m_pool);
+            }
 
             return pooled;
         }
@@ -68,7 +68,8 @@ namespace ObjectPool
                 obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
             // 同步 Transform
-            obj.GetComponent<NetworkObject>().TrySetParent(m_pool);
+            if (obj.TryGetComponent<NetworkObject>(out var netObj))
+                netObj.TrySetParent(m_pool);
             obj.transform.SetPositionAndRotation(pos, rot);
 
             return obj;

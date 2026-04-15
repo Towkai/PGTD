@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace EventDispatcher
 {
@@ -9,7 +10,7 @@ namespace EventDispatcher
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Mouse.current.leftButton.value > 0)
             {
                 Dispatcher.Instance.Dispatch(new ConsoleLogEvent(_logMessage));
             }
