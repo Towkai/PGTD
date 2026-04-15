@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class Bullet : NetworkBehaviour
+public class Bullet : ObjectPool.PooledObject
 {
     public float speed = 10f;
 

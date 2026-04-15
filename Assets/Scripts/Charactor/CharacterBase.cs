@@ -6,7 +6,6 @@ namespace Character
     public abstract class CharacterBase : NetworkBehaviour
     {
         [SerializeField] protected float m_fullBlood = 10;
-
         protected NetworkVariable<float> m_nowBlood = new NetworkVariable<float>();
 
         public float FullBlood => m_fullBlood;

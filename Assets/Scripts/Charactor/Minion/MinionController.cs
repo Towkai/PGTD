@@ -38,6 +38,7 @@ namespace Character
         }
         public override void OnNetworkSpawn()
         {
+            base.OnNetworkSpawn();
             // 只有 Server 會跑 NavMesh
             if (m_navAgent != null)
                 m_navAgent.enabled = IsServer;
