@@ -17,11 +17,19 @@ namespace ObjectPool
             this.Key = key;
         }
         // 給 PoolManager 呼叫初始化
-        public virtual void OnSpawnFromPool(Vector3 pos, Quaternion rot)
+        [ClientRpc]
+        public virtual void OnSpawnFromPoolClientRpc(Vector3 pos, Quaternion rot)
         {
             transform.SetPositionAndRotation(pos, rot);
             gameObject.SetActive(true);
             Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
+        }
+        // 回收
+        [ClientRpc]
+        public virtual void OnReturnToPoolClientRpc()
+        {
+            Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
+            gameObject.SetActive(false);
         }
         protected override void OnNetworkPreSpawn(ref NetworkManager networkManager)
         {
@@ -40,12 +48,6 @@ namespace ObjectPool
             for (int i = 0; i < m_renderers.Length; i++)
                 m_renderers[i].enabled = enabled;
         }
-        // 回收
-        public virtual void OnReturnToPool()
-        {
-            Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
-            gameObject.SetActive(false);
-        }
 
         public IEnumerator LifeTimer(float t)
         {
@@ -56,7 +58,6 @@ namespace ObjectPool
             }
             GameManager.Instance.SpawnManager.ReturnToPool(this);
         }
-
         private void ReturnToPool(RecycleEventArg e)
         {
             if (e.Transform == this.transform)
@@ -66,6 +67,5 @@ namespace ObjectPool
                 // networkObject.Despawn();
             }
         }
-        
     }
 }

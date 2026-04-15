@@ -63,7 +63,7 @@ namespace ObjectPool
                 ? pool.Dequeue()
                 : CreateNew(config);
 
-            obj.OnSpawnFromPool(pos, rot);
+            obj.OnSpawnFromPoolClientRpc(pos, rot);
             if (config.recycleTime > 0)
                 obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
@@ -79,7 +79,7 @@ namespace ObjectPool
         {
             if (!IsServer) return;
 
-            obj.OnReturnToPool();
+            obj.OnReturnToPoolClientRpc();
 
             poolDict[obj.Key].Enqueue(obj);
         }
