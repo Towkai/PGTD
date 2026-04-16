@@ -37,14 +37,14 @@ public class GameManager : MonoBehaviour
         {
             case "1":
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Red_Minion,
+                ConstString.PooledObject.S_Red_Minion,
                 new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 90, 0)
                 );
                 break;
             case "2":
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Blue_Minion,
+                ConstString.PooledObject.S_Blue_Minion,
                 new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 270, 0)
                 );
@@ -64,34 +64,34 @@ public class GameManager : MonoBehaviour
                 {
                     // Spawn(ConstString.S_Red_Minion);
                     SpawnManager.Instance.Spawn(
-                    ConstString.S_Red_Minion,
+                    ConstString.PooledObject.S_Red_Minion,
                     new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
                     Quaternion.Euler(0, 90, 0)
                     );
                 }
                 else if (ctx.control.displayName == Key.X.ToString())
                 {
-                    // Spawn(ConstString.S_Blue_Minion);
+                    // Spawn(ConstString.Minion.S_Blue_Minion);
                     SpawnManager.Instance.Spawn(
-                    ConstString.S_Red_Minion2,
+                    ConstString.PooledObject.S_Red_Minion2,
                     new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                     Quaternion.Euler(0, 270, 0)
                     );
                 }
                 else if (ctx.control.displayName == Key.Slash.ToString())
                 {
-                    // Spawn(ConstString.S_Blue_Minion);
+                    // Spawn(ConstString.Minion.S_Blue_Minion);
                     SpawnManager.Instance.Spawn(
-                    ConstString.S_Blue_Minion,
+                    ConstString.PooledObject.S_Blue_Minion,
                     new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                     Quaternion.Euler(0, 270, 0)
                     );
                 }
                 else if (ctx.control.displayName == KeyCode.Period.ToString())
                 {
-                    // Spawn(ConstString.S_Blue_Minion);
+                    // Spawn(ConstString.Minion.S_Blue_Minion);
                     SpawnManager.Instance.Spawn(
-                    ConstString.S_Blue_Minion2,
+                    ConstString.PooledObject.S_Blue_Minion2,
                     new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                     Quaternion.Euler(0, 270, 0)
                     );
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             case InputActionPhase.Started:
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Red_Minion,
+                ConstString.PooledObject.S_Red_Minion,
                 new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 90, 0)
                 );
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         {
             case InputActionPhase.Started:
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Red_Minion2,
+                ConstString.PooledObject.S_Red_Minion2,
                 new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 90, 0)
                 );
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
         {
             case InputActionPhase.Started:
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Blue_Minion,
+                ConstString.PooledObject.S_Blue_Minion,
                 new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 90, 0)
                 );
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         {
             case InputActionPhase.Started:
                 SpawnManager.Instance.Spawn(
-                ConstString.S_Blue_Minion2,
+                ConstString.PooledObject.S_Blue_Minion2,
                 new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
                 Quaternion.Euler(0, 90, 0)
                 );
