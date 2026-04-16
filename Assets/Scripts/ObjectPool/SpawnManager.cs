@@ -33,7 +33,7 @@ namespace ObjectPool
                     queue.Enqueue(obj);
                 }
 
-                poolDict[config.key] = queue;
+                poolDict[config.Key] = queue;
             }
         }
 
@@ -41,7 +41,7 @@ namespace ObjectPool
         {
             GameObject go = Instantiate(config.prefab);
             if (go.TryGetComponent<PooledObject>(out var pooled))
-                pooled.SetPool(config.key);
+                pooled.SetPool(config.Key);
             if (go.TryGetComponent<NetworkObject>(out var netObj))
             {
                 netObj.Spawn(true); // Netcode生成
@@ -86,7 +86,7 @@ namespace ObjectPool
 
         private PoolConfig GetConfig(string id)
         {
-            return configs.Find(c => c.key == id);
+            return configs.Find(c => c.Key == id);
         }
     }
 }

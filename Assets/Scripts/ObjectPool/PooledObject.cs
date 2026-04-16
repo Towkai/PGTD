@@ -3,6 +3,7 @@ using UnityEngine;
 using Interfaces;
 using EventDispatcher;
 using System.Collections;
+using UnityEngine.Events;
 
 namespace ObjectPool
 {
@@ -11,7 +12,7 @@ namespace ObjectPool
         [SerializeField] protected Renderer[] m_renderers = null;
         public string Key { get; private set; }
         public bool isActive => this.gameObject.activeInHierarchy;
-
+        public UnityEvent onRecycle = null;
         public void SetPool(string key)
         {
             this.Key = key;
@@ -22,12 +23,14 @@ namespace ObjectPool
         {
             transform.SetPositionAndRotation(pos, rot);
             gameObject.SetActive(true);
+            Dispatcher.Instance.Subscribe<RecycleEvent>(ReturnToPool);
             Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
         }
         // 回收
         [ClientRpc]
         public virtual void OnReturnToPoolClientRpc()
         {
+            Dispatcher.Instance.Unsubscribe<RecycleEvent>(ReturnToPool);
             Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
             gameObject.SetActive(false);
         }
@@ -58,11 +61,16 @@ namespace ObjectPool
             }
             GameManager.Instance.SpawnManager.ReturnToPool(this);
         }
+        private void ReturnToPool(RecycleEvent e)
+        {
+            GameManager.Instance.SpawnManager.ReturnToPool(this);
+        }
         private void ReturnToPool(RecycleEventArg e)
         {
             if (e.Transform == this.transform)
             {
-                e.OnRecycle?.Invoke();
+                onRecycle?.Invoke();
+                e.Callback?.Invoke();
                 GameManager.Instance.SpawnManager.ReturnToPool(this);
                 // networkObject.Despawn();
             }

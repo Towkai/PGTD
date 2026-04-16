@@ -16,9 +16,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spawn_S.Blue_Minion",
+                    "name": "Spawn_S.Red_Minion2",
                     "type": "Button",
                     "id": "ea4fdaf5-9cc7-4c59-af49-3f573b8ec572",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn_S.Blue_Minion",
+                    "type": "Button",
+                    "id": "7fe0c276-8720-4e7d-a7df-37c24bceb4f9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn_S.Blue_Minion2",
+                    "type": "Button",
+                    "id": "45b087ef-aee5-4122-ae1b-b09b55eaf2d5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -59,6 +77,28 @@
                     "name": "",
                     "id": "9152e919-3c8a-41ae-97e0-23c887a0975b",
                     "path": "<Keyboard>/x",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn_S.Red_Minion2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fac72bd-2a5e-41a8-8f1c-86141d330ec9",
+                    "path": "<Keyboard>/period",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn_S.Blue_Minion2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9287a0f4-6d8e-4193-ae06-656203636faf",
+                    "path": "<Keyboard>/slash",
                     "interactions": "Tap",
                     "processors": "",
                     "groups": "",

@@ -123,7 +123,7 @@ namespace Character
         RecycleEventArg recycleEventArg;
         public MinionDeadState(MinionController minion, StateMachine stateMachine): base(minion, stateMachine, "Dead")
         {
-            recycleEventArg = new RecycleEventArg(minion.transform, minion.Init);
+            recycleEventArg = new RecycleEventArg(minion.transform/*, minion.Init*/); //改由PooledObject.OnRecycle呼叫初始化，在Inspector設定
         }
         public override void Enter()
         {
