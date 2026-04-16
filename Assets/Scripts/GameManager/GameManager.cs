@@ -53,105 +53,68 @@ public class GameManager : MonoBehaviour
     }
 #endregion
 
+    public void Spawn_Red_Minion()
+    {
+        SpawnManager.Instance.Spawn(
+            ConstString.PooledObject.S_Red_Minion,
+            new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
+            Quaternion.Euler(0, 90, 0)
+        );
+    }
+    public void Spawn_Red_Minion2()
+    {
+        SpawnManager.Instance.Spawn(
+            ConstString.PooledObject.S_Red_Minion2,
+            new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
+            Quaternion.Euler(0, 90, 0)
+        );
+    }
+    public void Spawn_Blue_Minion()
+    {
+        SpawnManager.Instance.Spawn(
+            ConstString.PooledObject.S_Blue_Minion,
+            new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
+            Quaternion.Euler(0, 90, 0)
+        );
+    }
+    public void Spawn_Blue_Minion2()
+    {
+        SpawnManager.Instance.Spawn(
+            ConstString.PooledObject.S_Blue_Minion2,
+            new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
+            Quaternion.Euler(0, 90, 0)
+        );
+    }
 
 #region test
     public void Test_Spawn(InputAction.CallbackContext ctx)
     {
+        Debug.Log(ctx.control.displayName);
         switch (ctx.phase)
         {
             case InputActionPhase.Started:
                 if (ctx.control.displayName == Key.Z.ToString())
                 {
-                    // Spawn(ConstString.S_Red_Minion);
-                    SpawnManager.Instance.Spawn(
-                    ConstString.PooledObject.S_Red_Minion,
-                    new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-                    Quaternion.Euler(0, 90, 0)
-                    );
+                    Spawn_Red_Minion();
                 }
                 else if (ctx.control.displayName == Key.X.ToString())
                 {
-                    // Spawn(ConstString.Minion.S_Blue_Minion);
-                    SpawnManager.Instance.Spawn(
-                    ConstString.PooledObject.S_Red_Minion2,
-                    new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                    Quaternion.Euler(0, 270, 0)
-                    );
+                    Spawn_Red_Minion2();
                 }
-                else if (ctx.control.displayName == Key.Slash.ToString())
+                else if (ctx.control.displayName == "/")
                 {
-                    // Spawn(ConstString.Minion.S_Blue_Minion);
-                    SpawnManager.Instance.Spawn(
-                    ConstString.PooledObject.S_Blue_Minion,
-                    new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                    Quaternion.Euler(0, 270, 0)
-                    );
+                    Debug.Log("Spawn_Blue_Minion");
+                    Spawn_Blue_Minion();
                 }
-                else if (ctx.control.displayName == KeyCode.Period.ToString())
+                else if (ctx.control.displayName == ".")
                 {
-                    // Spawn(ConstString.Minion.S_Blue_Minion);
-                    SpawnManager.Instance.Spawn(
-                    ConstString.PooledObject.S_Blue_Minion2,
-                    new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                    Quaternion.Euler(0, 270, 0)
-                    );
+                    Debug.Log("Spawn_Blue_Minion2");
+                    Spawn_Blue_Minion2();
                 }
                 else if (ctx.control.displayName == "C")
                 {
                     Dispatcher.Instance.Dispatch(new RecycleEvent());
                 }
-                break;
-        }
-    }
-    public void Test_Spawn_Red_Minion(InputAction.CallbackContext ctx)
-    {
-        switch (ctx.phase)
-        {
-            case InputActionPhase.Started:
-                SpawnManager.Instance.Spawn(
-                ConstString.PooledObject.S_Red_Minion,
-                new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 90, 0)
-                );
-                break;
-        }
-    }
-    public void Test_Spawn_Red_Minion2(InputAction.CallbackContext ctx)
-    {
-        switch (ctx.phase)
-        {
-            case InputActionPhase.Started:
-                SpawnManager.Instance.Spawn(
-                ConstString.PooledObject.S_Red_Minion2,
-                new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 90, 0)
-                );
-                break;
-        }
-    }
-    public void Test_Spawn_Blue_Minion(InputAction.CallbackContext ctx)
-    {
-        switch (ctx.phase)
-        {
-            case InputActionPhase.Started:
-                SpawnManager.Instance.Spawn(
-                ConstString.PooledObject.S_Blue_Minion,
-                new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 90, 0)
-                );
-                break;
-        }
-    }
-    public void Test_Spawn_Blue_Minion2(InputAction.CallbackContext ctx)
-    {
-        switch (ctx.phase)
-        {
-            case InputActionPhase.Started:
-                SpawnManager.Instance.Spawn(
-                ConstString.PooledObject.S_Blue_Minion2,
-                new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 90, 0)
-                );
                 break;
         }
     }

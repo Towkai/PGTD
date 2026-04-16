@@ -10,6 +10,7 @@ namespace Network
     public enum ERole { server, host, client }
     public class NetworkLauncher : MonoBehaviour
     {
+        public static NetworkLauncher instance;
 #if ODIN_INSPECTOR && UNITY_EDITOR
         [Sirenix.OdinInspector.InlineEditor(Sirenix.OdinInspector.InlineEditorObjectFieldModes.Foldout)]
 #endif
@@ -20,12 +21,11 @@ namespace Network
         private ushort port = 7777;
         private bool isPortPass = true;
         private ERole m_role = ERole.host;
-        
 
         private void OnClientConnected(ulong clientId)
         {
             Debug.Log($"Client connected: {clientId}");
-            if (NetworkManager.Singleton.IsServer && clientId >= 1)
+            if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.ConnectedClients.Count > 1)
                 NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.InGame, UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         }
@@ -33,8 +33,15 @@ namespace Network
         private void OnClientDisconnected(ulong clientId)
         {
             Debug.Log($"Client disconnected: {clientId}");
-            if (NetworkManager.Singleton.IsServer && clientId < 1)
+            if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.ConnectedClients.Count <= 1)
                 NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.Login, UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+        void Awake()
+        {
+            if (instance == null)
+                instance = this;
+            else if (instance != this)
+                Destroy(this.gameObject);
         }
         void Start()
         {
