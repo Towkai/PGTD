@@ -25,7 +25,7 @@ namespace Network
         private void OnClientConnected(ulong clientId)
         {
             Debug.Log($"Client connected: {clientId}");
-            if (clientId > 1)
+            if (NetworkManager.Singleton.IsServer && clientId >= 1)
                 NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.InGame, UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         }
@@ -33,7 +33,7 @@ namespace Network
         private void OnClientDisconnected(ulong clientId)
         {
             Debug.Log($"Client disconnected: {clientId}");
-            if (clientId < 2)
+            if (NetworkManager.Singleton.IsServer && clientId < 1)
                 NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.Login, UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         void Start()
