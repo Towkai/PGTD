@@ -59,11 +59,11 @@ namespace ObjectPool
                 t -= Time.deltaTime;
                 yield return null;
             }
-            GameManager.Instance.SpawnManager.ReturnToPool(this);
+            SpawnManager.Instance.ReturnToPool(this);
         }
         private void ReturnToPool(RecycleEvent e)
         {
-            GameManager.Instance.SpawnManager.ReturnToPool(this);
+            SpawnManager.Instance.ReturnToPool(this);
         }
         private void ReturnToPool(RecycleEventArg e)
         {
@@ -71,7 +71,7 @@ namespace ObjectPool
             {
                 onRecycle?.Invoke();
                 e.Callback?.Invoke();
-                GameManager.Instance.SpawnManager.ReturnToPool(this);
+                SpawnManager.Instance.ReturnToPool(this);
                 // networkObject.Despawn();
             }
         }
