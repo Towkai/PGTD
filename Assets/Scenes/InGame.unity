@@ -448,14 +448,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656204500}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Spawn_Red_Minion_ServerRpc
-        m_Mode: 1
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: S.Red.Minion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &71743871
@@ -908,39 +908,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &278727818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 278727819}
-  m_Layer: 0
-  m_Name: Prototype
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &278727819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278727818}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.454212, y: -4.950051, z: -13.477589}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1024963757}
-  - {fileID: 1711071114}
-  m_Father: {fileID: 656204498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -1437,7 +1404,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297495373}
-  - {fileID: 278727819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &656204499
@@ -1518,11 +1484,35 @@ MonoBehaviour:
     m_ActionId: 85afda56-8712-4892-8c7e-28d62e4ddbc2
     m_ActionName: 'Spawn/Destroy_S.All_Minion[/Keyboard/c]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 656204500}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7fe0c276-8720-4e7d-a7df-37c24bceb4f9
     m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/slash]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 656204500}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 45b087ef-aee5-4122-ae1b-b09b55eaf2d5
     m_ActionName: 'Spawn/Spawn_S.Blue_Minion2[/Keyboard/period]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -1654,14 +1644,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656204500}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Spawn_Blue_Minion2_ServerRpc
-        m_Mode: 1
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: S.Blue.Minion2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &696077755
@@ -1830,11 +1820,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1024963757 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-  m_PrefabInstance: {fileID: 1112671225075360080}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049909105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,14 +2912,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656204500}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Spawn_Blue_Minion_ServerRpc
-        m_Mode: 1
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: S.Blue.Minion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1444919621
@@ -3817,11 +3802,6 @@ MonoBehaviour:
   oauth: oauth:rn9mokua611pk0a82ex217kwcpe7lh
   channel: pagui_aki
   reconnectDelay: 60
---- !u!4 &1711071114 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-  m_PrefabInstance: {fileID: 8047103285166837307}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1909162951
 Mesh:
   m_ObjectHideFlags: 0
@@ -4072,14 +4052,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656204500}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Spawn_Red_Minion2_ServerRpc
-        m_Mode: 1
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: S.Red.Minion2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1937857635
@@ -4130,76 +4110,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071561037356662245, guid: 812045e116767974fb2073ba08968cdf, type: 3}
   m_PrefabInstance: {fileID: 5915805320434189046}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1112671225075360080
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 278727819}
-    m_Modifications:
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -44.454212
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.200051
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.477589
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207980309488301328, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 581044300692859250, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_Name
-      value: Minion
-      objectReference: {fileID: 0}
-    - target: {fileID: 581044300692859250, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3001185366172657594, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 638068365
-      objectReference: {fileID: 0}
-    - target: {fileID: 3001185366172657594, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 1345862064
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 17a706f5629d7884dbcc1655260f9312, type: 3}
 --- !u!1001 &5915805320434189046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4293,83 +4203,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 812045e116767974fb2073ba08968cdf, type: 3}
---- !u!1001 &8047103285166837307
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 278727819}
-    m_Modifications:
-    - target: {fileID: 427222491371992105, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_Name
-      value: Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 427222491371992105, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.10000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.10000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -44.41421
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.260051
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.5575886
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417384375886891540, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3714335535060947466, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 938945102
-      objectReference: {fileID: 0}
-    - target: {fileID: 3714335535060947466, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 4086417138
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f39db5f29e226624c9918e89f7e1c197, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

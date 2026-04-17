@@ -12,7 +12,6 @@ public class GameManager : NetworkBehaviour
     public static GameManager Instance;
     [SerializeField]
     PlayerInput testInput;
-    List<InputAction> spawnAction = new List<InputAction>();
     void Awake()
     {
         Instance = this;
@@ -20,8 +19,6 @@ public class GameManager : NetworkBehaviour
     void Start()
     {
         testInput ??= this.GetComponent<PlayerInput>();
-        spawnAction.Add(testInput.actions.FindAction("Spawn_S.Red_Minion"));
-        spawnAction.Add(testInput.actions.FindAction("Spawn_S.Blue_Minion"));
     }
     public bool Spawn(string key, Vector3 pos, Quaternion rot)
     {
@@ -51,36 +48,58 @@ public class GameManager : NetworkBehaviour
         }
     }
 #endregion
-    [ServerRpc]
+    public void OnSpawnButtonClick(string name)
+    {
+        switch (name)
+        {
+            case ConstString.PooledObject.S_Red_Minion:
+                Spawn_Red_Minion_ServerRpc();
+                break;
+            case ConstString.PooledObject.S_Red_Minion2:
+                Spawn_Red_Minion2_ServerRpc();
+                break;
+            case ConstString.PooledObject.S_Blue_Minion:
+                Spawn_Blue_Minion_ServerRpc();
+                break;
+            case ConstString.PooledObject.S_Blue_Minion2:
+                Spawn_Blue_Minion2_ServerRpc();
+                break;
+        }
+    }
+    [Rpc(SendTo.Server)]
     public void Spawn_Red_Minion_ServerRpc()
     {
+        Debug.Log("Spawn_Red_Minion_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Red_Minion,
             new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
             Quaternion.Euler(0, 90, 0)
         );
     }
-    [ServerRpc]
+    [Rpc(SendTo.Server)]
     public void Spawn_Red_Minion2_ServerRpc()
     {
+        Debug.Log("Spawn_Red_Minion2_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Red_Minion2,
             new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
             Quaternion.Euler(0, 90, 0)
         );
     }
-    [ServerRpc]
+    [Rpc(SendTo.Server)]
     public void Spawn_Blue_Minion_ServerRpc()
     {
+        Debug.Log("Spawn_Blue_Minion_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Blue_Minion,
             new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
             Quaternion.Euler(0, 90, 0)
         );
     }
-    [ServerRpc]
+    [Rpc(SendTo.Server)]
     public void Spawn_Blue_Minion2_ServerRpc()
     {
+        Debug.Log("Spawn_Blue_Minion2_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Blue_Minion2,
             new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
@@ -91,7 +110,6 @@ public class GameManager : NetworkBehaviour
 #region test
     public void Test_Spawn(InputAction.CallbackContext ctx)
     {
-        Debug.Log(ctx.control.displayName);
         switch (ctx.phase)
         {
             case InputActionPhase.Started:
