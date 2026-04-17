@@ -20,7 +20,7 @@ namespace Network
         private bool isIpPass = true;
         private ushort port = 7777;
         private bool isPortPass = true;
-        private ERole m_role = ERole.host;
+        private ERole m_role = ERole.client;
 
         private void OnClientConnected(ulong clientId)
         {
