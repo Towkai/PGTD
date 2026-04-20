@@ -125,19 +125,11 @@ namespace ObjectPool
         }
         public void OnSpawnButtonClick(string name)
         {
-            Debug.Log($"OnSpawnButtonClick: {string.Format(name, GameManager.Instance.MySide)}");
-            Debug.Log($"IsSpawned: {IsSpawned}\nNetworkObject: {NetworkObject}\n" + 
-            $"IsOwner: {IsOwner}\n" + 
-            $"IsClient: {IsClient}\n" +
-            $"IsServer: {IsServer}\n" + 
-            $"NetworkManager: {NetworkManager.Singleton}");
-
             Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide), GameManager.Instance.MySide);
         }
         [Rpc(SendTo.Server)]
         public void Spawn_Minion_ServerRpc(string name, ESide side)
         {
-            Debug.Log($"Spawn_Minion_ServerRpc: {name}");
             Spawn(name, side);
         }
 
