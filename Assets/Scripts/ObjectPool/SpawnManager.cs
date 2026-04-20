@@ -22,11 +22,6 @@ namespace ObjectPool
         private Dictionary<string, Queue<PooledObject>> poolDict = new();
         [SerializeField] UnityEngine.InputSystem.PlayerInput testInput;
 
-        void Awake () 
-        {
-            DontDestroyOnLoad (gameObject);
-        }
-
         public override void OnNetworkSpawn()
         {
             if (!IsServer) return;
@@ -131,12 +126,11 @@ namespace ObjectPool
         public void OnSpawnButtonClick(string name)
         {
             Debug.Log($"OnSpawnButtonClick: {string.Format(name, GameManager.Instance.MySide)}");
-            Debug.Log($"IsSpawned: {IsSpawned}");
-            Debug.Log($"NetworkObject: {NetworkObject}");
-            Debug.Log($"IsOwner: {IsOwner}");
-            Debug.Log($"IsClient: {IsClient}");
-            Debug.Log($"IsServer: {IsServer}");
-            Debug.Log($"NetworkManager: {NetworkManager.Singleton}");
+            Debug.Log($"IsSpawned: {IsSpawned}\nNetworkObject: {NetworkObject}\n" + 
+            $"IsOwner: {IsOwner}\n" + 
+            $"IsClient: {IsClient}\n" +
+            $"IsServer: {IsServer}\n" + 
+            $"NetworkManager: {NetworkManager.Singleton}");
 
             Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide), GameManager.Instance.MySide);
         }
