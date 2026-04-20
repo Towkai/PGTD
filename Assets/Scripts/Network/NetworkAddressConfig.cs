@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Network
 {
-#if UNITY_EDITOR
-#endif
     [CreateAssetMenu(menuName = "MyConfig/IpAddress")]
     public class NetworkAddressConfig : ScriptableObject
     {

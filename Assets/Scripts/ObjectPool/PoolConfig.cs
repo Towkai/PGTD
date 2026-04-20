@@ -9,7 +9,7 @@ namespace ObjectPool
 #if ODIN_INSPECTOR && UNITY_EDITOR
         [Sirenix.OdinInspector.ShowInInspector]
 #endif
-        public string Key => this.name;              // pool key
+        public string Key => prefab == null ? string.Empty : prefab.name;              // pool key
         public GameObject prefab;
         public float recycleTime = -1; //回收時間，在Prefab的Inspector裡設定。-1為不會定時回收
         [Range(0, Byte.MaxValue)]

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf85a97af71f3642b85b1d60da1242c, type: 3}
+  m_Name: 09.TikTok.Red.Minion
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7604089093434811207, guid: d916239a9cefc2c4492c1ea790e08770, type: 3}
+  recycleTime: -1
+  initialSize: 0

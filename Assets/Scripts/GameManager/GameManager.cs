@@ -6,7 +6,7 @@ using EventDispatcher;
 using Interfaces;
 using Unity.Netcode;
 
-
+public enum ESide { Red, Blue }
 public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;
@@ -34,15 +34,13 @@ public class GameManager : NetworkBehaviour
             case "1":
                 ObjectPool.SpawnManager.Instance.Spawn(
                 ConstString.PooledObject.S_Red_Minion,
-                new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 90, 0)
+                ESide.Red
                 );
                 break;
             case "2":
                 ObjectPool.SpawnManager.Instance.Spawn(
                 ConstString.PooledObject.S_Blue_Minion,
-                new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-                Quaternion.Euler(0, 270, 0)
+                ESide.Blue
                 );
                 break;  
         }
@@ -53,7 +51,7 @@ public class GameManager : NetworkBehaviour
         switch (name)
         {
             case ConstString.PooledObject.S_Red_Minion:
-                Spawn_Red_Minion_ServerRpc();
+                Spawn_Red_Minion_ServerRpc(name);
                 break;
             case ConstString.PooledObject.S_Red_Minion2:
                 Spawn_Red_Minion2_ServerRpc();
@@ -67,13 +65,21 @@ public class GameManager : NetworkBehaviour
         }
     }
     [Rpc(SendTo.Server)]
+    public void Spawn_Red_Minion_ServerRpc(string name)
+    {
+        Debug.Log("Spawn_Red_Minion_ServerRpc");
+        ObjectPool.SpawnManager.Instance.Spawn(
+            name,
+            ESide.Red
+        );
+    }
+    [Rpc(SendTo.Server)]
     public void Spawn_Red_Minion_ServerRpc()
     {
         Debug.Log("Spawn_Red_Minion_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Red_Minion,
-            new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-            Quaternion.Euler(0, 90, 0)
+            ESide.Red
         );
     }
     [Rpc(SendTo.Server)]
@@ -82,8 +88,7 @@ public class GameManager : NetworkBehaviour
         Debug.Log("Spawn_Red_Minion2_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Red_Minion2,
-            new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4)),
-            Quaternion.Euler(0, 90, 0)
+            ESide.Red
         );
     }
     [Rpc(SendTo.Server)]
@@ -92,8 +97,7 @@ public class GameManager : NetworkBehaviour
         Debug.Log("Spawn_Blue_Minion_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Blue_Minion,
-            new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-            Quaternion.Euler(0, 90, 0)
+            ESide.Blue
         );
     }
     [Rpc(SendTo.Server)]
@@ -102,8 +106,7 @@ public class GameManager : NetworkBehaviour
         Debug.Log("Spawn_Blue_Minion2_ServerRpc");
         ObjectPool.SpawnManager.Instance.Spawn(
             ConstString.PooledObject.S_Blue_Minion2,
-            new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4)),
-            Quaternion.Euler(0, 90, 0)
+            ESide.Blue
         );
     }
 

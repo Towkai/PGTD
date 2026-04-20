@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c4daeb379146a4e9397d9176c0322d, type: 3}
+  m_Name: TikTokPrefabGroup
+  m_EditorClassIdentifier: 
+  m_configs:
+  - {fileID: 11400000, guid: 1c8b872313d838f49b9a762c20a1ec06, type: 2}
+  - {fileID: 11400000, guid: 722e546fb20d6794fbd44735ff192f83, type: 2}
+  - {fileID: 11400000, guid: 31b19ca61e7fcc146906493b19e8ea2b, type: 2}
+  - {fileID: 11400000, guid: d651e995e0575114a9e99f0b853a7074, type: 2}
+  - {fileID: 11400000, guid: 3831486fa8f5a5b4eb9e8823efe95827, type: 2}
+  - {fileID: 11400000, guid: d470e9b43205f9b4794bb8f39d4f857c, type: 2}
+  - {fileID: 11400000, guid: 4e51873c2291eb34c9288dc5fd390df0, type: 2}
+  - {fileID: 11400000, guid: 423983c73a89fef43b7513b63e503dce, type: 2}
+  - {fileID: 11400000, guid: 512e5ec65701b294c951345f68b0810f, type: 2}
+  - {fileID: 11400000, guid: 9ab55433ca3ca424ca6334572e00d00f, type: 2}
+  - {fileID: 11400000, guid: bdc88a51554848a4b903703d3d1b402e, type: 2}
+  - {fileID: 11400000, guid: 5a47430174b36314c9ac063da97f4494, type: 2}
+  - {fileID: 11400000, guid: 9af38f89e9b7ae24fa26c12e52d90c58, type: 2}
+  - {fileID: 11400000, guid: a1712502d4cae1f44b7b6494209fcb67, type: 2}
+  - {fileID: 11400000, guid: 5a8bb0bccf4f4884498addc18ce1fa55, type: 2}
+  - {fileID: 11400000, guid: d0e46745df5a6dc49bed4e6d0aa85a5d, type: 2}
+  - {fileID: 11400000, guid: 7c7f01203ac1cb7448e375398c785fbe, type: 2}
+  - {fileID: 11400000, guid: 45cd764bdd422044a81cd38b13afdf68, type: 2}
+  - {fileID: 11400000, guid: d077eacbfab00984b973060111a702d0, type: 2}
+  - {fileID: 11400000, guid: 32d38fab67e69a444971c77d5a0f0a79, type: 2}
+  - {fileID: 11400000, guid: ac4ac8134ef525c44a494412426e9ece, type: 2}
+  - {fileID: 11400000, guid: d6fbad6b1b1a9834bba5f9f61af56fa8, type: 2}

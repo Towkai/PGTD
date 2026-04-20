@@ -9,7 +9,14 @@ namespace ObjectPool
         public static SpawnManager Instance;
         public NetworkObject m_pool = null;
 
-        [SerializeField] private List<PoolConfig> configs;
+#if ODIN_INSPECTOR && UNITY_EDITOR
+        [Sirenix.OdinInspector.InlineEditor(Sirenix.OdinInspector.InlineEditorObjectFieldModes.Foldout)]
+#endif
+        [SerializeField] private PoolConfigGroup poolConfigGroup = null;
+#if ODIN_INSPECTOR && UNITY_EDITOR
+        [Sirenix.OdinInspector.ShowInInspector]
+#endif
+        [SerializeField] private List<PoolConfig> configs => poolConfigGroup.Configs;
 
         private Dictionary<string, Queue<PooledObject>> poolDict = new();
 
@@ -52,6 +59,12 @@ namespace ObjectPool
         }
 
         // Server 呼叫
+        public PooledObject Spawn(string key, ESide side)
+        {
+            Vector3 pos = GetSideRendomPos(side);
+            Quaternion rot = GetSideRot(side);
+            return Spawn(key, pos, rot);
+        }
         public PooledObject Spawn(string key, Vector3 pos, Quaternion rot)
         {
             if (!IsServer) return null;
@@ -87,6 +100,31 @@ namespace ObjectPool
         private PoolConfig GetConfig(string id)
         {
             return configs.Find(c => c.Key == id);
+        }
+
+        public Vector3 GetSideRendomPos(ESide side)
+        {
+            switch (side)
+            {
+                case ESide.Red:
+                    return new Vector3(Random.Range(-14, -10), 0, Random.Range(-4, 4));
+                case ESide.Blue:
+                    return new Vector3(Random.Range(10, 14), 0, Random.Range(-4, 4));
+                default:
+                    return Vector3.down;
+            }
+        }
+        public Quaternion GetSideRot (ESide side)
+        {
+            switch (side)
+            {
+                case ESide.Red:
+                    return Quaternion.Euler(0, 90, 0);
+                case ESide.Blue:
+                    return Quaternion.Euler(0, 270, 0);
+                default:
+                    return Quaternion.Euler(Vector3.zero);
+            }            
         }
     }
 }
