@@ -927,10 +927,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1050, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382478092
 MonoBehaviour:
@@ -975,7 +975,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 382478094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 06.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &382478093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,10 +1195,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1818, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451349039
 MonoBehaviour:
@@ -1231,7 +1243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 451349041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 10.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &451349040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,10 +1342,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 858, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541403795
 MonoBehaviour:
@@ -1366,7 +1390,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 541403797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 05.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &541403796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,10 +1489,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583493372
 MonoBehaviour:
@@ -1502,8 +1538,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
         m_MethodName: OnSpawnButtonClick
         m_Mode: 5
         m_Arguments:
@@ -1511,7 +1547,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: S.Red.Minion
+          m_StringArgument: 01.TikTok.{0}.Minion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &583493373
@@ -1577,7 +1613,6 @@ GameObject:
   - component: {fileID: 656204498}
   - component: {fileID: 656204501}
   - component: {fileID: 656204500}
-  - component: {fileID: 656204499}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1597,124 +1632,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1297495373}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &656204499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656204497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 0c36edc3e5e075a42a56bf6c69941bb2, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5813d041-eff0-42df-9ea1-f731c1c4e77f
-    m_ActionName: 'Spawn/Spawn_S.Red_Minion[/Keyboard/z]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ea4fdaf5-9cc7-4c59-af49-3f573b8ec572
-    m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/x]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 71c56ddd-b4ae-4d16-a0a3-adb992c82094
-    m_ActionName: 'Spawn/Spawn_S.Bullet[/Keyboard/v]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 85afda56-8712-4892-8c7e-28d62e4ddbc2
-    m_ActionName: 'Spawn/Destroy_S.All_Minion[/Keyboard/c]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7fe0c276-8720-4e7d-a7df-37c24bceb4f9
-    m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/slash]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 656204500}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Test_Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 45b087ef-aee5-4122-ae1b-b09b55eaf2d5
-    m_ActionName: 'Spawn/Spawn_S.Blue_Minion2[/Keyboard/period]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Spawn
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &656204500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,7 +1648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  testInput: {fileID: 656204499}
 --- !u!114 &656204501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,10 +1707,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 282, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727695524
 MonoBehaviour:
@@ -1836,7 +1755,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 727695526}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 02.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &727695525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,10 +1854,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 666, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802762358
 MonoBehaviour:
@@ -1971,7 +1902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802762360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 04.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &802762359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,10 +2050,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1242, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886633952
 MonoBehaviour:
@@ -2155,7 +2098,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 886633954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 07.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &886633953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2708,10 +2663,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1434, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208546160
 MonoBehaviour:
@@ -2756,7 +2711,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1208546162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 08.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1208546161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,7 +2785,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297495373}
+  - component: {fileID: 1297495378}
   - component: {fileID: 1297495376}
+  - component: {fileID: 1297495377}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -2834,13 +2803,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297495372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1049909106}
-  m_Father: {fileID: 656204498}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1297495376
 MonoBehaviour:
@@ -2856,7 +2825,147 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   m_pool: {fileID: 1049909107}
-  poolConfigGroup: {fileID: 11400000, guid: 5cd76cb5939771c43a86e65ea3f9e224, type: 2}
+  poolConfigGroup: {fileID: 11400000, guid: 2254d8e6dd3f3f24bb93ab6c21cd5afb, type: 2}
+  testInput: {fileID: 1297495377}
+--- !u!114 &1297495377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297495372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0c36edc3e5e075a42a56bf6c69941bb2, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5813d041-eff0-42df-9ea1-f731c1c4e77f
+    m_ActionName: 'Spawn/Spawn_S.Red_Minion[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ea4fdaf5-9cc7-4c59-af49-3f573b8ec572
+    m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/x]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71c56ddd-b4ae-4d16-a0a3-adb992c82094
+    m_ActionName: 'Spawn/Spawn_S.Bullet[/Keyboard/v]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 85afda56-8712-4892-8c7e-28d62e4ddbc2
+    m_ActionName: 'Spawn/Destroy_S.All_Minion[/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7fe0c276-8720-4e7d-a7df-37c24bceb4f9
+    m_ActionName: 'Spawn/Spawn_S.Blue_Minion[/Keyboard/slash]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: Test_Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 45b087ef-aee5-4122-ae1b-b09b55eaf2d5
+    m_ActionName: 'Spawn/Spawn_S.Blue_Minion2[/Keyboard/period]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Spawn
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1297495378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297495372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 547996099
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &1352205848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3517,7 @@ PrefabInstance:
       objectReference: {fileID: 1176496062}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8757
+      value: 8760
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3792,10 +3901,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 474, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549551702
 MonoBehaviour:
@@ -3840,7 +3949,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549551704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 03.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1549551703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4188,10 +4309,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1626, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933095140
 MonoBehaviour:
@@ -4236,7 +4357,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933095142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1297495376}
+        m_TargetAssemblyTypeName: ObjectPool.SpawnManager, Assembly-CSharp
+        m_MethodName: OnSpawnButtonClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 09.TikTok.{0}.Minion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1933095141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4385,7 +4518,7 @@ PrefabInstance:
       objectReference: {fileID: 1909162951}
     - target: {fileID: 8941434722470595342, guid: 812045e116767974fb2073ba08968cdf, type: 3}
       propertyPath: m_VersionIndex
-      value: 8775
+      value: 8778
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4403,6 +4536,7 @@ SceneRoots:
   - {fileID: 1534469383}
   - {fileID: 1352205851}
   - {fileID: 1470398179}
+  - {fileID: 1297495373}
   - {fileID: 656204498}
   - {fileID: 410087041}
   - {fileID: 832575519}

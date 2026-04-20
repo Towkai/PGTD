@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TikTokPrefabGroup
   m_EditorClassIdentifier: 
   m_configs:
+  - {fileID: 11400000, guid: 53733443e517e7248829a52728798686, type: 2}
+  - {fileID: 11400000, guid: 72b005e446eadc7488ef5ca5950e219a, type: 2}
   - {fileID: 11400000, guid: 1c8b872313d838f49b9a762c20a1ec06, type: 2}
   - {fileID: 11400000, guid: 722e546fb20d6794fbd44735ff192f83, type: 2}
   - {fileID: 11400000, guid: 31b19ca61e7fcc146906493b19e8ea2b, type: 2}

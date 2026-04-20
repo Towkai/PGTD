@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using EventDispatcher;
+using Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,7 +8,6 @@ namespace ObjectPool
 {
     public class SpawnManager : NetworkBehaviour
     {
-        public static SpawnManager Instance;
         public NetworkObject m_pool = null;
 
 #if ODIN_INSPECTOR && UNITY_EDITOR
@@ -19,10 +20,11 @@ namespace ObjectPool
         [SerializeField] private List<PoolConfig> configs => poolConfigGroup.Configs;
 
         private Dictionary<string, Queue<PooledObject>> poolDict = new();
+        [SerializeField] UnityEngine.InputSystem.PlayerInput testInput;
 
-        private void Awake()
+        void Awake () 
         {
-            Instance = this;
+            DontDestroyOnLoad (gameObject);
         }
 
         public override void OnNetworkSpawn()
@@ -126,5 +128,54 @@ namespace ObjectPool
                     return Quaternion.Euler(Vector3.zero);
             }            
         }
+        public void OnSpawnButtonClick(string name)
+        {
+            Debug.Log($"OnSpawnButtonClick: {string.Format(name, GameManager.Instance.MySide)}");
+            Debug.Log($"IsSpawned: {IsSpawned}");
+            Debug.Log($"NetworkObject: {NetworkObject}");
+            Debug.Log($"IsOwner: {IsOwner}");
+            Debug.Log($"IsClient: {IsClient}");
+            Debug.Log($"IsServer: {IsServer}");
+            Debug.Log($"NetworkManager: {NetworkManager.Singleton}");
+
+            Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide), GameManager.Instance.MySide);
+        }
+        [Rpc(SendTo.Server)]
+        public void Spawn_Minion_ServerRpc(string name, ESide side)
+        {
+            Debug.Log($"Spawn_Minion_ServerRpc: {name}");
+            Spawn(name, side);
+        }
+
+#region test
+    public void Test_Spawn(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        switch (ctx.phase)
+        {
+            case UnityEngine.InputSystem.InputActionPhase.Started:
+                if (ctx.control.displayName == UnityEngine.InputSystem.Key.Z.ToString())
+                {
+                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Red_Minion, ESide.Red);
+                }
+                else if (ctx.control.displayName == UnityEngine.InputSystem.Key.X.ToString())
+                {
+                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Red_Minion2, ESide.Red);
+                }
+                else if (ctx.control.displayName == "/")
+                {
+                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Blue_Minion, ESide.Blue);
+                }
+                else if (ctx.control.displayName == ".")
+                {
+                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Blue_Minion2, ESide.Blue);
+                }
+                else if (ctx.control.displayName == "C")
+                {
+                    Dispatcher.Instance.Dispatch(new RecycleEvent());
+                }
+                break;
+            }
+        }
+    #endregion
     }
 }
