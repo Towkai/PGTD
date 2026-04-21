@@ -73,15 +73,13 @@ namespace ObjectPool
                 ? pool.Dequeue()
                 : CreateNew(config);
 
-            obj.OnSpawnFromPoolClientRpc(pos, rot);
             if (config.recycleTime > 0)
                 obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
             // 同步 Transform
             if (obj.TryGetComponent<NetworkObject>(out var netObj))
                 netObj.TrySetParent(m_pool);
-            obj.transform.SetPositionAndRotation(pos, rot);
-            obj.onSpawn?.Invoke();
+            obj.OnSpawnFromPoolClientRpc(pos, rot);
             callback?.Invoke();
 
             return obj;

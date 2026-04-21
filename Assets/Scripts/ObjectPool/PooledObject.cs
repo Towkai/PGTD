@@ -26,6 +26,7 @@ namespace ObjectPool
             gameObject.SetActive(true);
             Dispatcher.Instance.Subscribe<RecycleEvent>(ReturnToPool);
             Dispatcher.Instance.Subscribe<RecycleEventArg>(ReturnToPool);
+            onSpawn.Invoke();
         }
         // 回收
         [ClientRpc]
@@ -34,6 +35,7 @@ namespace ObjectPool
             Dispatcher.Instance.Unsubscribe<RecycleEvent>(ReturnToPool);
             Dispatcher.Instance.Unsubscribe<RecycleEventArg>(ReturnToPool);
             gameObject.SetActive(false);
+            onRecycle.Invoke();
         }
         protected override void OnNetworkPreSpawn(ref NetworkManager networkManager)
         {
@@ -68,7 +70,7 @@ namespace ObjectPool
         {
             if (e.Transform == this.transform)
             {
-                onRecycle?.Invoke();
+                Debug.Log("RecycleEventArg");
                 e.Callback?.Invoke();
                 GameManager.Instance.SpawnManager.ReturnToPool(this);
                 // networkObject.Despawn();
