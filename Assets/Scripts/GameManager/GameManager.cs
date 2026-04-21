@@ -1,9 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using ObjectPool;
-using EventDispatcher;
-using Interfaces;
 using Unity.Netcode;
 
 public enum ESide { none, Red, Blue }
@@ -24,7 +20,7 @@ public class GameManager : NetworkBehaviour
     }
     public bool Spawn(string key, Vector3 pos, Quaternion rot)
     {
-        var spawn = m_spawnManager.Spawn(key, pos, rot);
+        var spawn = SpawnManager.Spawn(key, pos, rot);
         return spawn != null;
     }
 

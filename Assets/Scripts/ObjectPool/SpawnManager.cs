@@ -56,13 +56,13 @@ namespace ObjectPool
         }
 
         // Server 呼叫
-        public PooledObject Spawn(string key, ESide side)
+        public PooledObject Spawn(string key, ESide side, System.Action callback = null)
         {
             Vector3 pos = GetSideRendomPos(side);
             Quaternion rot = GetSideRot(side);
-            return Spawn(key, pos, rot);
+            return Spawn(key, pos, rot, callback);
         }
-        public PooledObject Spawn(string key, Vector3 pos, Quaternion rot)
+        public PooledObject Spawn(string key, Vector3 pos, Quaternion rot, System.Action callback = null)
         {
             if (!IsServer) return null;
 
@@ -81,6 +81,8 @@ namespace ObjectPool
             if (obj.TryGetComponent<NetworkObject>(out var netObj))
                 netObj.TrySetParent(m_pool);
             obj.transform.SetPositionAndRotation(pos, rot);
+            obj.onSpawn?.Invoke();
+            callback?.Invoke();
 
             return obj;
         }

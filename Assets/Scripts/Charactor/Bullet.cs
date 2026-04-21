@@ -9,8 +9,9 @@ public class Bullet : ObjectPool.PooledObject
 {
     public float speed = 10f;
     private bool isDespawned;
-    private RecycleEventArg recycleEventArg;
     public LayerMask companionLayer;
+    [SerializeField] private TrailRenderer m_trailRenderer = null;
+    private RecycleEventArg recycleEventArg;
 
     public bool IsEnemyLayerMask(GameObject obj)
     {
@@ -21,11 +22,11 @@ public class Bullet : ObjectPool.PooledObject
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        recycleEventArg = new RecycleEventArg(this.transform, Init);
+        recycleEventArg = new RecycleEventArg(this.transform);
     }
-    void Init()
+    public void Init() //由PooledObject.OnSpawn呼叫
     {
-        isDespawned = false;        
+        isDespawned = false;
     }
     void Update()
     {
@@ -36,13 +37,9 @@ public class Bullet : ObjectPool.PooledObject
     private void OnTriggerEnter(Collider other)
     {
         if (!IsServer || isDespawned || !IsEnemyLayerMask(other.gameObject)) return;
-        isDespawned = true;   
+        isDespawned = true;
 
-
-        bool isCharacter = other.TryGetComponent<Character.CharacterBase>(out var target);
-
-
-        if (isCharacter)
+        if (other.TryGetComponent<Character.CharacterBase>(out var target))
         {
             target.GetInjured(1);
         }

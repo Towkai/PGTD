@@ -12,6 +12,7 @@ namespace ObjectPool
         [SerializeField] protected Renderer[] m_renderers = null;
         public string Key { get; private set; }
         public bool isActive => this.gameObject.activeInHierarchy;
+        public UnityEvent onSpawn = null;
         public UnityEvent onRecycle = null;
         public void SetPool(string key)
         {
@@ -37,12 +38,10 @@ namespace ObjectPool
         protected override void OnNetworkPreSpawn(ref NetworkManager networkManager)
         {
             base.OnNetworkPreSpawn(ref networkManager);
-            SetRenderer(false);
         }
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-            SetRenderer(true);
         }
         public void SetRenderer(bool enabled)
         {
