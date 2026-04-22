@@ -1,15 +1,18 @@
 namespace Data
 {
-    public enum DataKey { none, last_channel_string, last_role_int, last_ip_string, last_port_int}
+    public enum DataKey { none, last_channel_string, last_role_int, last_ip_string, last_port_int, n1_Tiktok_minion_side}
     public static class ConstString
     {
         public struct PooledObject
         {
             public const string Bullet = "Bullet";
-            public const string S_Red_Minion = "S.Red.Minion";
-            public const string S_Red_Minion2 = "S.Red.Minion2";
-            public const string S_Blue_Minion = "S.Blue.Minion";
-            public const string S_Blue_Minion2 = "S.Blue.Minion2";
+            public const string Cube = "Cube";
+            public const string Cone = "Cone";
+            public const string Cylinder = "Cylinder";
+            public const string S_Red_Cube = "S.Red.Cube";
+            public const string S_Red_Cube2 = "S.Red.Cube2";
+            public const string S_Blue_Cube = "S.Blue.Cube";
+            public const string S_Blue_Cube2 = "S.Blue.Cube2";
         }
         public struct Scene
         {

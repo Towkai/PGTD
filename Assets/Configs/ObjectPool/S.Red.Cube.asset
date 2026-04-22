@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cf85a97af71f3642b85b1d60da1242c, type: 3}
-  m_Name: S.Red.Minion
+  m_Name: S.Red.Cube
   m_EditorClassIdentifier: 
-  key: S.Red.Minion
   prefab: {fileID: 4790063693676252485, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
   recycleTime: -1
   initialSize: 0

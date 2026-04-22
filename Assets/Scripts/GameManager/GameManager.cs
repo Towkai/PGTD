@@ -32,13 +32,13 @@ public class GameManager : NetworkBehaviour
         {
             case "1":
                 SpawnManager.Spawn(
-                Data.ConstString.PooledObject.S_Red_Minion,
+                Data.ConstString.PooledObject.S_Red_Cube,
                 ESide.Red
                 );
                 break;
             case "2":
                 SpawnManager.Spawn(
-                Data.ConstString.PooledObject.S_Blue_Minion,
+                Data.ConstString.PooledObject.S_Blue_Cube,
                 ESide.Blue
                 );
                 break;  

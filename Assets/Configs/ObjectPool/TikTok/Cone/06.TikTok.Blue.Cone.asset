@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf85a97af71f3642b85b1d60da1242c, type: 3}
   m_Name: 06.TikTok.Blue.Cone
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7604089093434811207, guid: 5d6b410f61a406044a81fa248255ea35, type: 3}
+  prefab: {fileID: 3397779001463795211, guid: 39764224ec81c1d4897649edfd6cae50, type: 3}
   recycleTime: -1
   initialSize: 0

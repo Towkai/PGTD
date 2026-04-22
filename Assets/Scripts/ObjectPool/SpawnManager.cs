@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Data;
 using EventDispatcher;
 using Interfaces;
 using Unity.Android.Gradle.Manifest;
@@ -126,7 +127,7 @@ namespace ObjectPool
         }
         public void OnSpawnButtonClick(string name)
         {
-            Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide), GameManager.Instance.MySide);
+            Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide, ConstString.PooledObject.Cube), GameManager.Instance.MySide);
         }
         [Rpc(SendTo.Server)]
         public void Spawn_Minion_ServerRpc(string name, ESide side)
@@ -142,19 +143,19 @@ namespace ObjectPool
             case UnityEngine.InputSystem.InputActionPhase.Started:
                 if (ctx.control.displayName == UnityEngine.InputSystem.Key.Z.ToString())
                 {
-                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Red_Minion, ESide.Red);
+                    Spawn_Minion_ServerRpc(string.Format("S.{0}.Cube", ESide.Red), ESide.Red);
                 }
                 else if (ctx.control.displayName == UnityEngine.InputSystem.Key.X.ToString())
                 {
-                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Red_Minion2, ESide.Red);
+                    Spawn_Minion_ServerRpc(string.Format("01.TikTok.{0}.Cone", ESide.Red), ESide.Red);
                 }
                 else if (ctx.control.displayName == "/")
                 {
-                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Blue_Minion, ESide.Blue);
+                    Spawn_Minion_ServerRpc(string.Format("S.{0}.Cube", ESide.Blue), ESide.Blue);
                 }
                 else if (ctx.control.displayName == ".")
                 {
-                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Blue_Minion2, ESide.Blue);
+                    Spawn_Minion_ServerRpc(string.Format("01.TikTok.{0}.Cone", ESide.Blue), ESide.Blue);
                 }
                 else if (ctx.control.displayName == "C")
                 {

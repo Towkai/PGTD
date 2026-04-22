@@ -686,7 +686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f12f5dad988874b83f8b008a9c575f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: werety66678
   onConnectStart:
     m_PersistentCalls:
       m_Calls: []
@@ -1224,7 +1223,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 06.TikTok.{0}.Minion
+          m_StringArgument: 06.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &382478093
@@ -1492,7 +1491,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 10.TikTok.{0}.Minion
+          m_StringArgument: 10.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &451349040
@@ -1639,7 +1638,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 05.TikTok.{0}.Minion
+          m_StringArgument: 05.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &541403796
@@ -1786,7 +1785,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 01.TikTok.{0}.Minion
+          m_StringArgument: 01.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &583493373
@@ -2004,7 +2003,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 02.TikTok.{0}.Minion
+          m_StringArgument: 02.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &727695525
@@ -2151,7 +2150,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 04.TikTok.{0}.Minion
+          m_StringArgument: 04.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &802762359
@@ -2347,7 +2346,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 07.TikTok.{0}.Minion
+          m_StringArgument: 07.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &886633953
@@ -2960,7 +2959,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 08.TikTok.{0}.Minion
+          m_StringArgument: 08.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1208546161
@@ -3252,6 +3251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 28cdfba457c0fbf47bab526032c0c186, type: 2}
+  OnConnectSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1352205853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4198,7 +4200,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 03.TikTok.{0}.Minion
+          m_StringArgument: 03.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1549551703
@@ -4606,7 +4608,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 09.TikTok.{0}.Minion
+          m_StringArgument: 09.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1933095141
