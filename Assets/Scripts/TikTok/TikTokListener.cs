@@ -1,11 +1,15 @@
 using System;
 using TikTokLiveUnity;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TikTokListener : MonoBehaviour
 {
     public string userName = string.Empty;
-
+    public UnityEvent onConnectStart;
+    public UnityEvent<bool> onConnectSuccess;
+    public UnityEvent<Exception> onConnectFail;
+    public TMPro.TMP_InputField tmp_Field;
     #if ODIN_INSPECTOR && UNITY_EDITOR
     [Sirenix.OdinInspector.Button]
     private void ConnectToTikTokBtn()
@@ -14,11 +18,30 @@ public class TikTokListener : MonoBehaviour
             return;
         ConnectToTikTok();
     }
-    #endif
+#endif
+    public void Start()
+    {
+        onConnectFail.AddListener((e) => tmp_Field.textComponent.color = Color.red);
+        tmp_Field.onValueChanged.AddListener((e) => tmp_Field.textComponent.color = Color.Lerp(Color.black, Color.white, 50f/255));
+    }
+    public void OnConnectBtnClick() //在Connect按鈕Inspector中設定
+    {
+        onConnectStart.Invoke();
+        ConnectToTikTok();
+    }
+    public void OnConnectSuccess(bool value) //在TikTokLiveManager的Inspector中設定
+    {
+        onConnectSuccess.Invoke(value);
+    }
     async void ConnectToTikTok()
     {
+        if (string.IsNullOrEmpty(userName))
+        {
+            onConnectFail.Invoke(null);
+            return;
+        }
         // 連線
-        await TikTokLiveManager.Instance.Connect(userName, null);
+        await TikTokLiveManager.Instance.Connect(userName, null, e => onConnectFail.Invoke(e));
 
         // 留言
         var client = TikTokLiveManager.Instance;
@@ -50,6 +73,10 @@ public class TikTokListener : MonoBehaviour
             Debug.Log($"<color=yellow>{Newtonsoft.Json.JsonConvert.SerializeObject(e)}</color>");
             Debug.Log($"[{ConvertDateTime(e.ClientSendTime)}] {e.User.NickName} joined");
         };
+    }
+    public void SetUsername(string value)
+    {
+        userName = value;
     }
     public static string ConvertDateTime(long timestamp)  
     {

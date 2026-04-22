@@ -10,7 +10,6 @@ public class Bullet : ObjectPool.PooledObject
     public float speed = 10f;
     private bool isDespawned;
     public LayerMask companionLayer;
-    [SerializeField] private TrailRenderer m_trailRenderer = null;
     private RecycleEventArg recycleEventArg;
 
     public bool IsEnemyLayerMask(GameObject obj)
