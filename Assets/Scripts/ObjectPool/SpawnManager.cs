@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using EventDispatcher;
 using Interfaces;
+using Unity.Android.Gradle.Manifest;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -141,19 +142,19 @@ namespace ObjectPool
             case UnityEngine.InputSystem.InputActionPhase.Started:
                 if (ctx.control.displayName == UnityEngine.InputSystem.Key.Z.ToString())
                 {
-                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Red_Minion, ESide.Red);
+                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Red_Minion, ESide.Red);
                 }
                 else if (ctx.control.displayName == UnityEngine.InputSystem.Key.X.ToString())
                 {
-                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Red_Minion2, ESide.Red);
+                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Red_Minion2, ESide.Red);
                 }
                 else if (ctx.control.displayName == "/")
                 {
-                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Blue_Minion, ESide.Blue);
+                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Blue_Minion, ESide.Blue);
                 }
                 else if (ctx.control.displayName == ".")
                 {
-                    Spawn_Minion_ServerRpc(ConstString.PooledObject.S_Blue_Minion2, ESide.Blue);
+                    Spawn_Minion_ServerRpc(Data.ConstString.PooledObject.S_Blue_Minion2, ESide.Blue);
                 }
                 else if (ctx.control.displayName == "C")
                 {

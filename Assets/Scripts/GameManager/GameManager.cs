@@ -1,6 +1,7 @@
 using UnityEngine;
 using ObjectPool;
 using Unity.Netcode;
+using Unity.Android.Gradle.Manifest;
 
 public enum ESide { none, Red, Blue }
 public class GameManager : NetworkBehaviour
@@ -31,13 +32,13 @@ public class GameManager : NetworkBehaviour
         {
             case "1":
                 SpawnManager.Spawn(
-                ConstString.PooledObject.S_Red_Minion,
+                Data.ConstString.PooledObject.S_Red_Minion,
                 ESide.Red
                 );
                 break;
             case "2":
                 SpawnManager.Spawn(
-                ConstString.PooledObject.S_Blue_Minion,
+                Data.ConstString.PooledObject.S_Blue_Minion,
                 ESide.Blue
                 );
                 break;  

@@ -180,7 +180,7 @@ namespace Character
         {
             if (!IsServer) return;
             this.transform.forward = Vector3.ProjectOnPlane(Target.position - this.transform.position, Vector3.up);
-            GameManager.Instance.Spawn($"{GetLayerNumber(companionLayer)}.{ConstString.PooledObject.Bullet}", this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
+            GameManager.Instance.Spawn($"{GetLayerNumber(companionLayer)}.{Data.ConstString.PooledObject.Bullet}", this.transform.position + this.transform.forward * 0.5f, this.transform.rotation);
         }
 
         public override void OnDead()

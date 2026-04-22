@@ -21,20 +21,24 @@ namespace Network
         private ushort port = 7777;
         private bool isPortPass = true;
         private ERole m_role = ERole.client;
+        [SerializeField] private UnityEvent OnConnectSuccess = null;
 
         private void OnClientConnected(ulong clientId)
         {
             Debug.Log($"Client connected: {clientId}");
-            if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.ConnectedClients.Count > 1)
-                NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.InGame, UnityEngine.SceneManagement.LoadSceneMode.Single);
-
+            if (NetworkManager.Singleton.ConnectedClients.Count > 1)
+            {
+                OnConnectSuccess.Invoke();
+                if (NetworkManager.Singleton.IsServer)
+                    NetworkManager.Singleton.SceneManager.LoadScene(Data.ConstString.Scene.InGame, UnityEngine.SceneManagement.LoadSceneMode.Single);
+            }
         }
 
         private void OnClientDisconnected(ulong clientId)
         {
             Debug.Log($"Client disconnected: {clientId}");
             if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.ConnectedClients.Count <= 1)
-                NetworkManager.Singleton.SceneManager.LoadScene(ConstString.Scene.Login, UnityEngine.SceneManagement.LoadSceneMode.Single);
+                NetworkManager.Singleton.SceneManager.LoadScene(Data.ConstString.Scene.Login, UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         void Awake()
         {
@@ -67,6 +71,7 @@ namespace Network
         public void SetRole(int value)
         {
             m_role = (ERole)value;
+            Data.PlayerPrefsHelper.SetInt(Data.DataKey.last_role_int, value);
         }
         public void SetIPAddress(TMPro.TMP_InputField tmp_Field)
         {

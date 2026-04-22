@@ -5,12 +5,15 @@ using UnityEngine.Events;
 
 public class TikTokListener : MonoBehaviour
 {
-    public string userName = string.Empty;
+#if ODIN_INSPECTOR && UNITY_EDITOR
+    [Sirenix.OdinInspector.ShowInInspector]
+#endif
+    public string UserName => tmp_Field.text;
     public UnityEvent onConnectStart;
     public UnityEvent<bool> onConnectSuccess;
     public UnityEvent<Exception> onConnectFail;
     public TMPro.TMP_InputField tmp_Field;
-    #if ODIN_INSPECTOR && UNITY_EDITOR
+#if ODIN_INSPECTOR && UNITY_EDITOR
     [Sirenix.OdinInspector.Button]
     private void ConnectToTikTokBtn()
     {
@@ -35,13 +38,13 @@ public class TikTokListener : MonoBehaviour
     }
     async void ConnectToTikTok()
     {
-        if (string.IsNullOrEmpty(userName))
+        if (string.IsNullOrEmpty(UserName))
         {
             onConnectFail.Invoke(null);
             return;
         }
         // 連線
-        await TikTokLiveManager.Instance.Connect(userName, null, e => onConnectFail.Invoke(e));
+        await TikTokLiveManager.Instance.Connect(UserName, null, e => onConnectFail.Invoke(e));
 
         // 留言
         var client = TikTokLiveManager.Instance;
@@ -73,10 +76,6 @@ public class TikTokListener : MonoBehaviour
             Debug.Log($"<color=yellow>{Newtonsoft.Json.JsonConvert.SerializeObject(e)}</color>");
             Debug.Log($"[{ConvertDateTime(e.ClientSendTime)}] {e.User.NickName} joined");
         };
-    }
-    public void SetUsername(string value)
-    {
-        userName = value;
     }
     public static string ConvertDateTime(long timestamp)  
     {
