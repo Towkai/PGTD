@@ -32,10 +32,10 @@ namespace Character
         public override void Enter()
         {
             base.Enter();
-            minion.StartNavDestination();
 #if UNITY_EDITOR
             minion.onDrawGizmos(true, detectRange);
 #endif
+            minion.StartNavDestination();
         }
         public override void Update()
         {
@@ -123,7 +123,7 @@ namespace Character
         RecycleEventArg recycleEventArg;
         public MinionDeadState(MinionController minion, StateMachine stateMachine): base(minion, stateMachine, "Dead")
         {
-            recycleEventArg = new RecycleEventArg(minion.transform/*, minion.Init*/); //改由PooledObject.OnRecycle呼叫初始化，在Inspector設定
+            recycleEventArg = new RecycleEventArg(minion.transform/*, minion.Init*/); //改由PooledObject.OnSpawn呼叫初始化，在Inspector設定
         }
         public override void Enter()
         {

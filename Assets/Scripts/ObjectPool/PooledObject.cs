@@ -70,7 +70,6 @@ namespace ObjectPool
         {
             if (e.Transform == this.transform)
             {
-                Debug.Log("RecycleEventArg");
                 e.Callback?.Invoke();
                 GameManager.Instance.SpawnManager.ReturnToPool(this);
                 // networkObject.Despawn();
