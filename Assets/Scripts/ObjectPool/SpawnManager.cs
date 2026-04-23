@@ -125,6 +125,7 @@ namespace ObjectPool
         }
         public void OnSpawnButtonClick(string prefabName)
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
             string number = prefabName.Split('.')[0];
             string DataKey = string.Format(Data.ConstString.PooledObject.MinionTypeKey, number);
             if (System.Enum.TryParse<Data.DataKey>(DataKey, out var result))
@@ -132,11 +133,13 @@ namespace ObjectPool
                 var temp = Data.PlayerPrefsHelper.GetString(result);
                 string DataValue = string.IsNullOrEmpty(temp) ? Data.ConstString.PooledObject.Cube : temp;
                 var MySide = GameManager.Instance.MySide;
-                Debug.Log("[SpawnManager]isHost: " + IsHost);
                 Spawn_Minion_ServerRpc(string.Format(prefabName, MySide, DataValue), MySide);
             }
             else
                 Debug.Log("[Unknow Data Key]: " + DataKey);
+#else
+            Debug.Log("DEVELOP_ONLY");
+#endif
         }
         [Rpc(SendTo.Server)]
         public void Spawn_Minion_ServerRpc(string name, ESide side)
