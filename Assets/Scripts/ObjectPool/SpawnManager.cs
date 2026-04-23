@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Data;
 using EventDispatcher;
 using Interfaces;
-using Unity.Android.Gradle.Manifest;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -75,13 +73,13 @@ namespace ObjectPool
                 ? pool.Dequeue()
                 : CreateNew(config);
 
+            obj.OnSpawnFromPoolClientRpc(pos, rot);
             if (config.recycleTime > 0)
                 obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
             // 同步 Transform
             if (obj.TryGetComponent<NetworkObject>(out var netObj))
                 netObj.TrySetParent(m_pool);
-            obj.OnSpawnFromPoolClientRpc(pos, rot);
             callback?.Invoke();
 
             return obj;
@@ -125,9 +123,20 @@ namespace ObjectPool
                     return Quaternion.Euler(Vector3.zero);
             }            
         }
-        public void OnSpawnButtonClick(string name)
+        public void OnSpawnButtonClick(string prefabName)
         {
-            Spawn_Minion_ServerRpc(string.Format(name, GameManager.Instance.MySide, ConstString.PooledObject.Cube), GameManager.Instance.MySide);
+            string number = prefabName.Split('.')[0];
+            string DataKey = string.Format(Data.ConstString.PooledObject.MinionTypeKey, number);
+            if (System.Enum.TryParse<Data.DataKey>(DataKey, out var result))
+            {
+                var temp = Data.PlayerPrefsHelper.GetString(result);
+                string DataValue = string.IsNullOrEmpty(temp) ? Data.ConstString.PooledObject.Cube : temp;
+                var MySide = GameManager.Instance.MySide;
+                Debug.Log("[SpawnManager]isHost: " + IsHost);
+                Spawn_Minion_ServerRpc(string.Format(prefabName, MySide, DataValue), MySide);
+            }
+            else
+                Debug.Log("[Unknow Data Key]: " + DataKey);
         }
         [Rpc(SendTo.Server)]
         public void Spawn_Minion_ServerRpc(string name, ESide side)

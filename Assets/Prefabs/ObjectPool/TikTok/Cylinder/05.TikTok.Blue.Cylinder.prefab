@@ -8,13 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433590602273001465, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
+      propertyPath: m_Speed
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2328588095272729204, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: f9f73bc4ac7575a45a98ab6d511a8b43, type: 2}
     - target: {fileID: 4440696344677349520, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
       propertyPath: m_speed
-      value: 0.75
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4440696344677349520, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
       propertyPath: m_fullBlood
@@ -31,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 5129067526494059965, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: ea93026f86935cb4f8ad029f2bab85b5, type: 2}
+      objectReference: {fileID: 2100000, guid: 71459bf0ecb2a6f43bf3520bd0de63e2, type: 2}
     - target: {fileID: 5227295737604395303, guid: 972f7564d2195904e8dab82bc5be0096, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

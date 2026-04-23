@@ -10,7 +10,6 @@ namespace Network
     public enum ERole { server, host, client }
     public class NetworkLauncher : MonoBehaviour
     {
-        public static NetworkLauncher instance;
 #if ODIN_INSPECTOR && UNITY_EDITOR
         [Sirenix.OdinInspector.InlineEditor(Sirenix.OdinInspector.InlineEditorObjectFieldModes.Foldout)]
 #endif
@@ -20,12 +19,16 @@ namespace Network
         private bool isIpPass = true;
         private ushort port = 7777;
         private bool isPortPass = true;
+        public bool isTryingConnect = false;
         private ERole m_role = ERole.client;
+        [SerializeField] private UnityEvent OnConnectStart = null;
         [SerializeField] private UnityEvent OnConnectSuccess = null;
+        [SerializeField] private UnityEvent OnConnectCancel = null;
 
         private void OnClientConnected(ulong clientId)
         {
             Debug.Log($"Client connected: {clientId}");
+            isTryingConnect = false;
             if (NetworkManager.Singleton.ConnectedClients.Count > 1)
             {
                 OnConnectSuccess.Invoke();
@@ -40,13 +43,6 @@ namespace Network
             if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.ConnectedClients.Count <= 1)
                 NetworkManager.Singleton.SceneManager.LoadScene(Data.ConstString.Scene.Login, UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
-        void Awake()
-        {
-            if (instance == null)
-                instance = this;
-            else if (instance != this)
-                Destroy(this.gameObject);
-        }
         void Start()
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
@@ -56,15 +52,26 @@ namespace Network
         {
             if (!isIpPass || !isPortPass)
                 return;
-            Debug.Log("Netcode Connect");
-            switch (m_role)
+            if (isTryingConnect)
             {
-                case ERole.host:
-                    StartHost();
-                    break;
-                case ERole.client:
-                    StartClient();
-                    break;
+                NetworkManager.Singleton.Shutdown();
+                OnConnectCancel.Invoke();
+                isTryingConnect = false;
+            }
+            else
+            {
+                Debug.Log("[Netcode]Start Connect");
+                switch (m_role)
+                {
+                    case ERole.host:
+                        StartHost();
+                        break;
+                    case ERole.client:
+                        StartClient();
+                        break;
+                }
+                OnConnectStart.Invoke();
+                isTryingConnect = true;
             }
         }
 

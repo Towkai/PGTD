@@ -1,10 +1,14 @@
 namespace Data
 {
-    public enum DataKey { none, last_channel_string, last_role_int, last_ip_string, last_port_int, n1_Tiktok_minion_side}
+    public enum DataKey { none, last_channel_string, last_role_int, last_ip_string, last_port_int, 
+        n01_minion_type, n02_minion_type, n03_minion_type, n04_minion_type, n05_minion_type, n06_minion_type, n07_minion_type, n08_minion_type, n09_minion_type, n10_minion_type
+    }
+    public enum MinionType{ Cube, Cone, Cylinder }
     public static class ConstString
     {
         public struct PooledObject
         {
+            public const string MinionTypeKey = "n{0:00}_minion_type";
             public const string Bullet = "Bullet";
             public const string Cube = "Cube";
             public const string Cone = "Cone";

@@ -5,10 +5,8 @@ using UnityEngine.Events;
 
 public class TikTokListener : MonoBehaviour
 {
-#if ODIN_INSPECTOR && UNITY_EDITOR
-    [Sirenix.OdinInspector.ShowInInspector]
-#endif
-    public string UserName => tmp_Field.text;
+    [SerializeField] private string userName;
+    public string UserName => string.IsNullOrEmpty(userName) ? userName = tmp_Field?.text : userName;
     public UnityEvent onConnectStart;
     public UnityEvent<bool> onConnectSuccess;
     public UnityEvent<Exception> onConnectFail;

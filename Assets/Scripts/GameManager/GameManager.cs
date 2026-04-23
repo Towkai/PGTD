@@ -4,12 +4,12 @@ using Unity.Netcode;
 using Unity.Android.Gradle.Manifest;
 
 public enum ESide { none, Red, Blue }
-public class GameManager : NetworkBehaviour
+public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private SpawnManager m_spawnManager = null;
     public SpawnManager SpawnManager => m_spawnManager ??= FindFirstObjectByType<SpawnManager>();
-    public ESide MySide => IsHost ? ESide.Red : ESide.Blue;
+    public ESide MySide => NetworkManager.Singleton.IsHost ? ESide.Red : ESide.Blue; 
     void Awake () 
     {
         if (Instance == null)
