@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Data;
 using EventDispatcher;
 using Interfaces;
 using Unity.Netcode;
@@ -54,7 +55,19 @@ namespace ObjectPool
 
             return pooled;
         }
-
+        void Start()
+        {
+            Dispatcher.Instance.Subscribe<SpawnEventArg>(SpawnEvent);
+        }
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            Dispatcher.Instance.Unsubscribe<SpawnEventArg>(SpawnEvent);
+        }
+        public void SpawnEvent(SpawnEventArg arg)
+        {
+            this.Spawn_Minion_ServerRpc(arg.Key, arg.Side);
+        }
         // Server 呼叫
         public PooledObject Spawn(string key, ESide side, System.Action callback = null)
         {
@@ -66,23 +79,28 @@ namespace ObjectPool
         {
             if (!IsServer) return null;
 
-            var pool = poolDict[key];
+            if (poolDict.TryGetValue(key, out var pool))
+            {
+                PoolConfig config = GetConfig(key);
+                PooledObject obj = pool.Count > 0
+                    ? pool.Dequeue()
+                    : CreateNew(config);
 
-            PoolConfig config = GetConfig(key);
-            PooledObject obj = pool.Count > 0
-                ? pool.Dequeue()
-                : CreateNew(config);
+                obj.OnSpawnFromPoolClientRpc(pos, rot);
+                if (config.recycleTime > 0)
+                    obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
 
-            obj.OnSpawnFromPoolClientRpc(pos, rot);
-            if (config.recycleTime > 0)
-                obj.StartCoroutine(obj.LifeTimer(config.recycleTime));
-
-            // 同步 Transform
-            if (obj.TryGetComponent<NetworkObject>(out var netObj))
-                netObj.TrySetParent(m_pool);
-            callback?.Invoke();
-
-            return obj;
+                // 同步 Transform
+                if (obj.TryGetComponent<NetworkObject>(out var netObj))
+                    netObj.TrySetParent(m_pool);
+                callback?.Invoke();
+                return obj;
+            }
+            else
+            {
+                Debug.LogError($"No Spawn Key: {key}");
+                return null;
+            }
         }
         
         public void ReturnToPool(PooledObject obj)
@@ -123,20 +141,17 @@ namespace ObjectPool
                     return Quaternion.Euler(Vector3.zero);
             }            
         }
-        public void OnSpawnButtonClick(string prefabName)
+        public void OnSpawnButtonClick(string name)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            string number = prefabName.Split('.')[0];
-            string DataKey = string.Format(Data.ConstString.PooledObject.MinionTypeKey, number);
-            if (System.Enum.TryParse<Data.DataKey>(DataKey, out var result))
+            string minionKey = ConstString.PooledObject.GetMinionKey(name);
+            if (!string.IsNullOrEmpty(minionKey))
             {
-                var temp = Data.PlayerPrefsHelper.GetString(result);
-                string DataValue = string.IsNullOrEmpty(temp) ? Data.ConstString.PooledObject.Cube : temp;
                 var MySide = GameManager.Instance.MySide;
-                Spawn_Minion_ServerRpc(string.Format(prefabName, MySide, DataValue), MySide);
+                Spawn_Minion_ServerRpc(minionKey, MySide);
             }
             else
-                Debug.Log("[Unknow Data Key]: " + DataKey);
+                Debug.Log("[Unknow Data Key]: " + name);
 #else
             Debug.Log("DEVELOP_ONLY");
 #endif
@@ -144,6 +159,7 @@ namespace ObjectPool
         [Rpc(SendTo.Server)]
         public void Spawn_Minion_ServerRpc(string name, ESide side)
         {
+            Debug.Log($"[Spawn_Minion_ServerRpc]name: {name}, ESide: {side}");
             Spawn(name, side);
         }
 

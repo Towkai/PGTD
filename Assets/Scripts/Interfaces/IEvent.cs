@@ -44,6 +44,25 @@ namespace Interfaces
         public void SetMinionType(Data.MinionType type)
         {
             this.m_minionType = type;
+        }        
+    }
+    public struct SpawnEventArg : IEvent
+    {
+        public string Key {get; private set;}
+        public ESide Side {get; private set;}
+        // public Action Callback {get; private set;} //RPC不能傳Action
+        public SpawnEventArg(string key, ESide side)
+        {
+            this.Key = key;
+            this.Side = side;
+        }
+        public void SetKey(string key)
+        {
+            this.Key = key;
+        }
+        public void SetSide(ESide side)
+        {
+            this.Side = side;
         }
     }
 }

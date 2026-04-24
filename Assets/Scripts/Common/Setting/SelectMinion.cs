@@ -26,7 +26,7 @@ namespace Common.Setting
         }
         void SetMinionType(Data.MinionType type)
         {
-            string playerFabsKey = string.Format(Data.ConstString.PooledObject.MinionTypeKey, select_num);
+            string playerFabsKey = string.Format(Data.ConstString.PooledObject.MinionType, select_num);
             changeImageEventArg.SetMinionType(type);
             Apply(playerFabsKey, type);
         }

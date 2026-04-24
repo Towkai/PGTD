@@ -8,8 +8,9 @@ namespace Data
     {
         public struct PooledObject
         {
-            public static readonly string[] MinionName = new string[]{"Rose", "TikTok", "You're awesome", "Ice Cream Cone", "Rosa", "GG", "Thai Milk Tea", "Little Sakura", "Sakura Mochi", "Doughnut"};
-            public const string MinionTypeKey = "n{0:00}_minion_type";
+            public static readonly string[] MinionNames = new string[]{"Rose", "TikTok", "You're awesome", "Ice Cream Cone", "Rosa", "GG", "Thai Milk Tea", "Little Sakura", "Sakura Mochi", "Doughnut"};
+            public const string MinionType = "n{0:00}_minion_type";
+            public const string MinionKey = "{0:00}.TikTok.{1}.{2}"; //{00}.TikTok.{Side}.{Tpye}
             public const string Bullet = "Bullet";
             public const string Cube = "Cube";
             public const string Cone = "Cone";
@@ -18,6 +19,39 @@ namespace Data
             public const string S_Red_Cube2 = "S.Red.Cube2";
             public const string S_Blue_Cube = "S.Blue.Cube";
             public const string S_Blue_Cube2 = "S.Blue.Cube2";
+
+            static string GetMinionType(string name)
+            {
+                int minionNum = System.Array.IndexOf(MinionNames, name);
+                if (minionNum < 0)
+                {
+                    return string.Empty;
+                }
+                string DataKey = string.Format(MinionType, minionNum); //取出類型
+                if (System.Enum.TryParse<DataKey>(DataKey, out var result))
+                {
+                    var type = PlayerPrefsHelper.GetString(result); //獲得內容
+                    type = string.IsNullOrEmpty(type) ? Cube : type;
+                    return type;
+                }
+                else
+                    return string.Empty;            
+            }
+            public static string GetMinionKey(string name)
+            {
+                int minionNum = System.Array.IndexOf(MinionNames, name);
+                if (minionNum < 0)
+                {
+                    return string.Empty;
+                }
+                string type = GetMinionType(name);
+                if (string.IsNullOrEmpty(type))
+                {
+                    return string.Empty;
+                }
+                return string.Format(MinionKey, minionNum, GameManager.Instance.MySide, type);             
+            }
+
         }
         public struct Scene
         {

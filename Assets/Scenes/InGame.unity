@@ -701,6 +701,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 252933143}
+        m_TargetAssemblyTypeName: Live.TikTok.TikTokListener, Assembly-CSharp
+        m_MethodName: SpawnGiftMinion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onJoin:
     m_PersistentCalls:
       m_Calls:
@@ -716,7 +728,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  UserName: elrisas.ff
+  UserName: armmer_taiyang
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,10 +1183,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1050, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382478092
 MonoBehaviour:
@@ -1229,7 +1241,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 05.TikTok.{0}.{1}
+          m_StringArgument: GG
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &382478093
@@ -1439,10 +1451,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1818, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451349039
 MonoBehaviour:
@@ -1497,7 +1509,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 09.TikTok.{0}.{1}
+          m_StringArgument: Doughnut
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &451349040
@@ -1586,10 +1598,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 858, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541403795
 MonoBehaviour:
@@ -1644,7 +1656,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 04.TikTok.{0}.{1}
+          m_StringArgument: Rosa
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &541403796
@@ -1733,10 +1745,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583493372
 MonoBehaviour:
@@ -1791,7 +1803,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 00.TikTok.{0}.{1}
+          m_StringArgument: Rose
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &583493373
@@ -1924,10 +1936,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 282, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727695524
 MonoBehaviour:
@@ -1982,7 +1994,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 01.TikTok.{0}.{1}
+          m_StringArgument: Rose
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &727695525
@@ -2071,10 +2083,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 666, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802762358
 MonoBehaviour:
@@ -2129,7 +2141,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 03.TikTok.{0}.{1}
+          m_StringArgument: Ice Cream Cone
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &802762359
@@ -2267,10 +2279,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1242, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886633952
 MonoBehaviour:
@@ -2325,7 +2337,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 06.TikTok.{0}.{1}
+          m_StringArgument: Thai Milk Tea
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &886633953
@@ -3197,10 +3209,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1434, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208546160
 MonoBehaviour:
@@ -3255,7 +3267,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 07.TikTok.{0}.{1}
+          m_StringArgument: Little Sakura
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1208546161
@@ -4102,10 +4114,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 474, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549551702
 MonoBehaviour:
@@ -4160,7 +4172,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 02.TikTok.{0}.{1}
+          m_StringArgument: You're awesome
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1549551703
@@ -4462,10 +4474,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1626, y: -90}
-  m_SizeDelta: {x: 0, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933095140
 MonoBehaviour:
@@ -4520,7 +4532,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 08.TikTok.{0}.{1}
+          m_StringArgument: Sakura Mochi
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1933095141
@@ -4685,6 +4697,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 1390653926}
   - {fileID: 976425940}
+  - {fileID: 982523265}
   - {fileID: 1352205851}
   - {fileID: 1297495373}
   - {fileID: 656204498}
@@ -4695,4 +4708,3 @@ SceneRoots:
   - {fileID: 940369176}
   - {fileID: 59855731}
   - {fileID: 342848259}
-  - {fileID: 982523265}

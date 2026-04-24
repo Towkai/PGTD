@@ -18,7 +18,7 @@ namespace Common.Setting
         void OnEnable()
         {
             string number = this.name.Split('.')[0];
-            string dataKey = string.Format(Data.ConstString.PooledObject.MinionTypeKey, number);
+            string dataKey = string.Format(Data.ConstString.PooledObject.MinionType, number);
             if (Enum.TryParse<Data.DataKey>(dataKey, out var result)) //取出每種圖案代表的Key(n{xx}_minion_type)
             {
                 string dataValue = Data.PlayerPrefsHelper.GetString(result);
