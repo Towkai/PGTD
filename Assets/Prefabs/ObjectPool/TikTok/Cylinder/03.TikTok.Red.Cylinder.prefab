@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790063693676252485, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_Name
-      value: 03.TikTok.Red.Cylinder
+      value: 04.TikTok.Red.Cylinder
       objectReference: {fileID: 0}
     - target: {fileID: 5129067526494059965, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_Materials.Array.size
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 5129067526494059965, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9847be012d6ca4c48b47e135263a672f, type: 2}
+      objectReference: {fileID: 2100000, guid: b62b6032559091543bc31bd21e966965, type: 2}
     - target: {fileID: 5227295737604395303, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7192155193454347149, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 522483391
+      value: 4098354027
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

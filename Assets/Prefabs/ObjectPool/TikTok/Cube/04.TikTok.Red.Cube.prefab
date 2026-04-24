@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4790063693676252485, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_Name
-      value: 04. TikTok.Red.Minion
+      value: 05. TikTok.Red.Minion
       objectReference: {fileID: 0}
     - target: {fileID: 5129067526494059965, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_Materials.Array.size
@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 5129067526494059965, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 00a5f0f0279bd9e4e81c6a02239feaa8, type: 2}
+      objectReference: {fileID: 2100000, guid: ea93026f86935cb4f8ad029f2bab85b5, type: 2}
     - target: {fileID: 5227295737604395303, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7192155193454347149, guid: c096c9362f50a8a4a8103b7567302778, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2428488145
+      value: 4201704593
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

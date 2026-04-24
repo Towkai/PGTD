@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 382478093}
   - component: {fileID: 382478092}
   m_Layer: 5
-  m_Name: 06. GG
+  m_Name: 05. GG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1171,10 +1171,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1050, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382478092
 MonoBehaviour:
@@ -1229,7 +1229,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 06.TikTok.{0}.{1}
+          m_StringArgument: 05.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &382478093
@@ -1419,7 +1419,7 @@ GameObject:
   - component: {fileID: 451349040}
   - component: {fileID: 451349039}
   m_Layer: 5
-  m_Name: 10. Doughnut
+  m_Name: 09. Doughnut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,10 +1439,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1818, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451349039
 MonoBehaviour:
@@ -1497,7 +1497,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 10.TikTok.{0}.{1}
+          m_StringArgument: 09.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &451349040
@@ -1566,7 +1566,7 @@ GameObject:
   - component: {fileID: 541403796}
   - component: {fileID: 541403795}
   m_Layer: 5
-  m_Name: 05. Rosa
+  m_Name: 04. Rosa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1586,10 +1586,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 858, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541403795
 MonoBehaviour:
@@ -1644,7 +1644,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 05.TikTok.{0}.{1}
+          m_StringArgument: 04.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &541403796
@@ -1713,7 +1713,7 @@ GameObject:
   - component: {fileID: 583493373}
   - component: {fileID: 583493372}
   m_Layer: 5
-  m_Name: 01. Rose
+  m_Name: 00. Rose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1733,10 +1733,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583493372
 MonoBehaviour:
@@ -1791,7 +1791,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 01.TikTok.{0}.{1}
+          m_StringArgument: 00.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &583493373
@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 727695525}
   - component: {fileID: 727695524}
   m_Layer: 5
-  m_Name: 02. TikTok
+  m_Name: 01. TikTok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,10 +1924,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 282, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727695524
 MonoBehaviour:
@@ -1982,7 +1982,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 02.TikTok.{0}.{1}
+          m_StringArgument: 01.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &727695525
@@ -2051,7 +2051,7 @@ GameObject:
   - component: {fileID: 802762359}
   - component: {fileID: 802762358}
   m_Layer: 5
-  m_Name: 04. Ice Cream Cone
+  m_Name: 03. Ice Cream Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2071,10 +2071,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 666, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802762358
 MonoBehaviour:
@@ -2129,7 +2129,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 04.TikTok.{0}.{1}
+          m_StringArgument: 03.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &802762359
@@ -2247,7 +2247,7 @@ GameObject:
   - component: {fileID: 886633953}
   - component: {fileID: 886633952}
   m_Layer: 5
-  m_Name: 07. Thai Milk Tea
+  m_Name: 06. Thai Milk Tea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2267,10 +2267,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1242, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886633952
 MonoBehaviour:
@@ -2325,7 +2325,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 07.TikTok.{0}.{1}
+          m_StringArgument: 06.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &886633953
@@ -3177,7 +3177,7 @@ GameObject:
   - component: {fileID: 1208546161}
   - component: {fileID: 1208546160}
   m_Layer: 5
-  m_Name: 08. Little Sakura
+  m_Name: 07. Little Sakura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3197,10 +3197,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1434, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208546160
 MonoBehaviour:
@@ -3255,7 +3255,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 08.TikTok.{0}.{1}
+          m_StringArgument: 07.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1208546161
@@ -4082,7 +4082,7 @@ GameObject:
   - component: {fileID: 1549551703}
   - component: {fileID: 1549551702}
   m_Layer: 5
-  m_Name: 03. You're awesome
+  m_Name: 02. You're awesome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4102,10 +4102,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 474, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549551702
 MonoBehaviour:
@@ -4160,7 +4160,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 03.TikTok.{0}.{1}
+          m_StringArgument: 02.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1549551703
@@ -4442,7 +4442,7 @@ GameObject:
   - component: {fileID: 1933095141}
   - component: {fileID: 1933095140}
   m_Layer: 5
-  m_Name: 09. Sakura Mochi
+  m_Name: 08. Sakura Mochi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4462,10 +4462,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 126961769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1626, y: -90}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933095140
 MonoBehaviour:
@@ -4520,7 +4520,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 09.TikTok.{0}.{1}
+          m_StringArgument: 08.TikTok.{0}.{1}
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1933095141

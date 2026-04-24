@@ -55,14 +55,14 @@ PrefabInstance:
     - target: {fileID: 2004204006281080880, guid: 5eea64dc7f8c44044be5da5857311d14, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 91194ecc631bdb2449854d7180221c40, type: 2}
+      objectReference: {fileID: 2100000, guid: 448a26f277aaec647b68684e91d7f3fc, type: 2}
     - target: {fileID: 2200007171145892040, guid: 5eea64dc7f8c44044be5da5857311d14, type: 3}
       propertyPath: m_Name
-      value: 02.TikTok.Red.Cone
+      value: 03.TikTok.Red.Cone
       objectReference: {fileID: 0}
     - target: {fileID: 4553680576807489024, guid: 5eea64dc7f8c44044be5da5857311d14, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 622550939
+      value: 2211187423
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

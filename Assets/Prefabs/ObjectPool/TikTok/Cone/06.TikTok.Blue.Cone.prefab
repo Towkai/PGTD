@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5814620737731859243, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3866725954
+      value: 3817974498
       objectReference: {fileID: 0}
     - target: {fileID: 7612290941579952578, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: m_VersionIndex
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144685464157347299, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: m_Name
-      value: 06.TikTok.Blue.Cone
+      value: 07.TikTok.Blue.Cone
       objectReference: {fileID: 0}
     - target: {fileID: 8381232405181639963, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: m_Materials.Array.size
@@ -27,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 8381232405181639963, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8453a23ce72d69f40accee8b9a2a9a1d, type: 2}
+      objectReference: {fileID: 2100000, guid: 3ba737ede2c1aad43aeeb2d08e1cfbc2, type: 2}
     - target: {fileID: 8932063084728648065, guid: a5ff4a75b2e520a41a2f2587723edd92, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

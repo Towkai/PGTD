@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf85a97af71f3642b85b1d60da1242c, type: 3}
   m_Name: 04.TikTok.Blue.Cylinder
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7604089093434811207, guid: c109b327f78a36541adaa8ec253a2614, type: 3}
+  prefab: {fileID: 7604089093434811207, guid: 2bcfe8e4902599c4786748bd4006631d, type: 3}
   recycleTime: -1
   initialSize: 0
